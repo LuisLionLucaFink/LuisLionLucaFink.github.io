@@ -31,6 +31,34 @@
       border-radius: 10px;
       box-shadow: 0 4px 14px rgba(0,0,0,0.12);
     }
+
+    h2{margin:26px 0 10px}
+    h3{margin:22px 0 10px}
+    
+    .figure{
+      margin: 16px 0 22px;
+      padding: 16px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+    
+    .figure img{
+      width: 100%;
+      max-width: 760px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 10px;
+    }
+    
+    .caption{
+      max-width: 760px;
+      margin: 12px auto 0;
+      font-size: 13.5px;
+      color: #555;
+      line-height: 1.5;
+    }
   </style>
 </head>
 <body>
@@ -113,6 +141,42 @@
       the Central and Eastern Mediterranean,
       the US-Mexico border region,
       and the Afghanistan-Iran corridor.
+    </p>
+
+    <h2>Exploratory Visualizations: Demographics, Origins, Causes and Routes</h2>
+
+    <p>
+      To understand the underlying patterns in migrant deaths, we first explore descriptive
+      statistics and visualizations based on the full dataset. These include demographic
+      breakdowns, top countries of origin, the most common causes of death, and the relative
+      frequency and danger of different migration routes. These insights help lay the foundation
+      for the spatial analyses that follow.
+    </p>
+    
+    <h3>Demographic Profile of the Deceased</h3>
+    
+    <div class="figure">
+      <img
+        src="Piechart.jpg"
+        alt="Percentage distribution of deaths and missing by demographic group"
+        loading="lazy"
+      />
+      <div class="caption">
+        Percentage distribution of deaths and missing by demographic group.
+        Men account for 66.3%, followed by women (20.9%) and children (12.9%).
+      </div>
+    </div>
+    
+    <p>
+      The vast majority of recorded deaths involve men (66.3%), followed by women (20.9%)
+      and children (12.9%). This distribution reflects broader global migration patterns,
+      where adult males are more likely to undertake risky routes.
+    </p>
+    
+    <p>
+      However, the substantial proportion of women and children highlights growing
+      vulnerabilities across all migrant groups, particularly in family-based or
+      forced displacement contexts.
     </p>
 
     <!-- FOLIUM MAP EMBED -->
