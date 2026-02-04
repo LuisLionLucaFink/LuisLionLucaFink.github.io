@@ -4,196 +4,336 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Missing Migrants Analysis</title>
+
   <style>
-    body{font-family:Arial,sans-serif;margin:0;background:#f5f6f8;color:#222}
-    header{background:#fff;padding:40px 20px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
-    main{max-width:900px;margin:40px auto;padding:0 20px}
-    .card{background:#fff;border-radius:12px;padding:22px 26px;box-shadow:0 4px 14px rgba(0,0,0,0.08)}
-    a{color:#3366cc;text-decoration:none;font-weight:700}
-    a:hover{text-decoration:underline}
-
-    .card + .card{margin-top:24px}
-    h2{margin:0 0 12px;font-size:22px}
-
-    section {
-      margin-bottom: 48px;
-    }
-    
-    section h2 {
-      margin-top: 0;
-      font-size: 22px;
-    }
-    
-    iframe {
-      width: 100%;
-      height: 520px;
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    body{
+      font-family: Arial, sans-serif;
+      margin:0;
+      background:#f5f6f8;
+      color:#222;
     }
 
-    h2{margin:26px 0 10px}
-    h3{margin:22px 0 10px}
-    
-    .figure{
-      margin: 16px 0 22px;
-      padding: 16px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    header{
+      background:#fff;
+      padding:46px 20px 42px;
+      text-align:center;
+      box-shadow:0 2px 8px rgba(0,0,0,0.08);
+      border-bottom:1px solid #e6e6e6;
     }
-    
-    .figure img{
-      width: 100%;
-      max-width: 760px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      border-radius: 10px;
+
+    header h1{
+      margin:0;
+      font-size:34px;
+      letter-spacing:0.2px;
     }
-    
+
+    header p{
+      max-width:880px;
+      margin:12px auto 0;
+      font-size:16px;
+      color:#555;
+      line-height:1.5;
+    }
+
+    main{
+      max-width:980px;
+      margin:42px auto;
+      padding:0 20px;
+    }
+
+    .card{
+      background:#fff;
+      border-radius:14px;
+      padding:26px 28px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+      margin-bottom:26px;
+    }
+
+    .section-title{
+      margin:0 0 10px 0;
+      font-size:20px;
+      font-weight:800;
+    }
+
+    .sub-title{
+      margin:18px 0 8px 0;
+      font-size:16px;
+      font-weight:800;
+      color:#333;
+    }
+
+    p{
+      margin:10px 0;
+      line-height:1.65;
+      color:#333;
+    }
+
+    .note{
+      background:#f7f9fc;
+      border:1px solid #d0d7e2;
+      border-radius:12px;
+      padding:12px 14px;
+      color:#334155;
+      font-size:13.5px;
+      line-height:1.55;
+      margin-top:12px;
+    }
+
+    .media{
+      margin-top:14px;
+      border:1px solid #e6e6e6;
+      border-radius:14px;
+      overflow:hidden;
+      background:#fff;
+    }
+
+    .media iframe{
+      width:100%;
+      height:560px;
+      border:0;
+      display:block;
+      background:#fff;
+    }
+
+    .img-wrap{
+      margin-top:14px;
+      border:1px solid #e6e6e6;
+      border-radius:14px;
+      background:#fff;
+      overflow:hidden;
+    }
+
+    .img-wrap img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+
     .caption{
-      max-width: 760px;
-      margin: 12px auto 0;
-      font-size: 13.5px;
-      color: #555;
-      line-height: 1.5;
+      padding:10px 14px;
+      font-size:12.5px;
+      color:#666;
+      background:#fafafa;
+      border-top:1px solid #eee;
+    }
+
+    a{
+      color:#3366cc;
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    a:hover{
+      text-decoration:underline;
+    }
+
+    .back{
+      display:inline-block;
+      margin-top:6px;
+      font-size:14px;
+    }
+
+    footer{
+      text-align:center;
+      padding:26px 18px 40px;
+      font-size:13px;
+      color:#666;
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>Mapping the Invisible</h1>
-    <p>Spatial & Temporal Analysis of Death and Missing Along International Migration Routes.</p>
+    <p><strong>Spatial Patterns</strong> of Death and Missing Along International Migration Routes</p>
   </header>
 
   <main>
-<main>
 
-  <!-- OVERVIEW -->
-  <section class="card">
-    <h2>Overview</h2>
-    <p>
-      This dashboard visualizes migrant deaths and disappearances across the globe.
-      It highlights major migration corridors and applies spatial analysis methods
-      to uncover meaningful geographic and temporal patterns.
-    </p>
-    <p>
-      The visualizations aim to support humanitarian understanding through
-      interactive maps and clustering techniques.
-    </p>
-  </section>
+    <!-- Overview -->
+    <div class="card">
+      <div class="section-title">Overview</div>
+      <p>
+        This dashboard visualizes migrant deaths and disappearances across the globe. It highlights major migration
+        corridors and uses spatial analysis to uncover meaningful geographic and temporal patterns. The visualizations
+        aim to support humanitarian understanding through interactive maps and clustering techniques.
+      </p>
 
-  <!-- MOTIVATION -->
-  <section class="card">
-    <h2>Motivation</h2>
-    <p>
-      Every year, thousands of migrants risk their lives crossing international borders.
-      Many do not survive. While these tragedies are often reduced to numbers,
-      this project uses data to identify where and when these deaths and disappearances occur
-      across multiple major migration routes.
-    </p>
-    <p>
-      By uncovering spatial and temporal patterns in migrant fatalities across the
-      six most dangerous migration corridors including the Mediterranean,
-      the US-Mexico border and the Sahara Desert,
-      this analysis aims to support evidence-based action.
-    </p>
-    <p>
-      The goal is not only to visualize loss,
-      but to reveal where preventive measures could save the most lives.
-    </p>
-  </section>
+      <p class="back">
+        <a href="../../index.html">Back to portfolio</a>
+      </p>
+    </div>
 
-  <!-- DATA SOURCE -->
-  <section class="card">
-    <h2>Data Source</h2>
-    <p>
-      The data is provided by the International Organization for Migration through
-      the Missing Migrants Project.
-      It documents deaths and disappearances during migration worldwide.
-    </p>
-    <p>
-      The dataset includes time, location, demographic information,
-      and cause of death, spanning from 2014 to the present.
-      Data is continuously updated based on reports from NGOs,
-      media sources, and official institutions.
-    </p>
-  </section>
+    <!-- Motivation -->
+    <div class="card">
+      <div class="section-title">Motivation</div>
+      <p>
+        Every year, thousands of migrants risk their lives crossing international borders. Many do not survive.
+        While these tragedies are often reduced to numbers, this project uses data to identify where and when these
+        deaths and disappearances happen, across multiple major migration routes.
+      </p>
+      <p>
+        By uncovering spatial and temporal patterns in migrant fatalities across the top six most dangerous migration
+        corridors, including the Mediterranean, the US Mexico border, the Sahara Desert and others, this analysis aims
+        to support evidence based action. The goal is not just to visualize loss, but to reveal where preventive
+        measures could save the most lives.
+      </p>
+    </div>
 
-  <!-- GLOBAL HEATMAP -->
-  <section class="card">
-    <h2>Global Heatmap of Incidents</h2>
-    <p>
-      To provide an initial spatial overview,
-      a global heatmap was created showing where migrant deaths
-      and disappearances have occurred since 2014.
-      Each data point is weighted by the number of dead and missing persons
-      to emphasize severity.
-    </p>
-    <p>
-      This visualization highlights high-risk zones and geographic concentrations
-      of migrant fatalities and serves as a baseline for
-      more detailed route-specific analyses.
-    </p>
-    <p>
-      Clear global patterns emerge, with high densities in North Africa,
-      the Central and Eastern Mediterranean,
-      the US-Mexico border region,
-      and the Afghanistan-Iran corridor.
-    </p>
+    <!-- Data Source -->
+    <div class="card">
+      <div class="section-title">Data Source</div>
+      <p>
+        The data is provided by the International Organization for Migration through the Missing Migrants Project.
+        It documents deaths and disappearances during migration worldwide. The dataset includes time, location,
+        demographics, and cause of death. It spans from 2014 to the present and is continuously updated by NGOs,
+        media, and official sources.
+      </p>
 
-    <h2>Exploratory Visualizations: Demographics, Origins, Causes and Routes</h2>
+      <p class="note">
+        Tip for your portfolio: add the direct dataset link here later and optionally a short methods note about
+        cleaning and filtering.
+      </p>
+    </div>
 
-    <p>
-      To understand the underlying patterns in migrant deaths, we first explore descriptive
-      statistics and visualizations based on the full dataset. These include demographic
-      breakdowns, top countries of origin, the most common causes of death, and the relative
-      frequency and danger of different migration routes. These insights help lay the foundation
-      for the spatial analyses that follow.
-    </p>
-    
-    <!-- FOLIUM MAP EMBED -->
-    <iframe src="heatmap_world.html"></iframe>
-    
-    <h3>Demographic Profile of the Deceased</h3>
-    
-    <div class="figure">
-      <img
-        src="Piechart.jpg"
-        alt="Percentage distribution of deaths and missing by demographic group"
-        loading="lazy"
-      />
-      <div class="caption">
-        Percentage distribution of deaths and missing by demographic group.
-        Men account for 66.3%, followed by women (20.9%) and children (12.9%).
+    <!-- Global Heatmap -->
+    <div class="card">
+      <div class="section-title">Global Heatmap of Incidents</div>
+      <p>
+        To provide an initial spatial overview, we created a global heatmap that shows where migrant deaths and
+        disappearances have occurred since 2014. Each data point is weighted by the number of dead and missing
+        persons to emphasize severity.
+      </p>
+      <p>
+        This visualization helps identify high risk zones and geographic concentrations of migrant fatalities. It
+        serves as a baseline for more detailed route specific analyses that follow.
+      </p>
+      <p>
+        Clear global patterns emerge from this heatmap: high densities are visible in North Africa, the Central and
+        Eastern Mediterranean, the US Mexico border region, and the Afghanistan Iran corridor, highlighting where
+        deadly risks are most acute.
+      </p>
+
+      <!-- Embed your Folium map file that you uploaded into the same folder -->
+      <!-- File path in repo: projects/missing-migrants/heatmap_world.html -->
+      <div class="media">
+        <iframe src="./heatmap_world.html" loading="lazy"></iframe>
+      </div>
+      <div class="caption">Interactive heatmap (Folium)</div>
+    </div>
+
+    <!-- Exploratory Visualizations -->
+    <div class="card">
+      <div class="section-title">Exploratory Visualizations: Demographics, Origins, Causes and Routes</div>
+      <p>
+        To understand the underlying patterns in migrant deaths, we first explore descriptive statistics and
+        visualizations based on the full dataset. These include demographic breakdowns, top countries of origin,
+        the most common causes of death, and the relative frequency and danger of different migration routes.
+        These insights help lay the foundation for the spatial analyses that follow.
+      </p>
+
+      <!-- Demographics -->
+      <div class="sub-title">Demographic Profile of the Deceased: Demographic Distribution</div>
+      <p>
+        The vast majority of recorded deaths involve men (66.3 percent), followed by women (20.9 percent) and
+        children (12.9 percent). This distribution reflects broader global migration patterns, where adult males
+        are more likely to undertake risky routes. However, the substantial proportion of women and children
+        highlights growing vulnerabilities across migrant groups, particularly in family based or forced
+        displacements.
+      </p>
+
+      <!-- Image 1: Piechart -->
+      <!-- Upload this image into the SAME folder: projects/missing-migrants/Piechart.jpeg -->
+      <div class="img-wrap">
+        <img src="./Piechart.jpeg" alt="Percentage distribution of deaths and missing by demographic group">
+        <div class="caption">Percentage distribution of deaths and missing by demographic group</div>
+      </div>
+
+      <!-- Origins -->
+      <div class="sub-title">Geographic Origins of Migrants: Top 10 Countries of Origin</div>
+      <p>
+        The country of origin offers important context for understanding migratory push factors. A significant
+        portion of the data is marked as “Unknown”, underscoring the frequent lack of identification during fatal
+        incidents. Among identifiable cases, countries like Afghanistan (17 percent) and Mexico (8 percent) are
+        most represented, followed by a variety of African and Central American nations. These patterns correspond
+        to regions affected by conflict, instability, and poverty.
+      </p>
+
+      <!-- Image 2: Countries of Origin -->
+      <!-- Upload into the SAME folder: projects/missing-migrants/Countries_of_Origin.jpeg -->
+      <div class="img-wrap">
+        <img src="./Countries_of_Origin.jpeg" alt="Top 10 countries of origin incidents">
+        <div class="caption">Top 10 countries of origin incidents (all years)</div>
+      </div>
+
+      <!-- Causes -->
+      <div class="sub-title">Causes of Death: Top 6</div>
+      <p>
+        By far the most frequent cause of death is drowning (57.5 percent), highlighting the extreme risks of
+        maritime crossings, especially in the Mediterranean and Atlantic. A considerable portion of cases are
+        labeled as mixed or unknown causes (14.5 percent), revealing gaps in incident reporting. Other major
+        contributors include hazardous transport accidents (8.9 percent), violence (6.8 percent), and harsh
+        environmental conditions (6.8 percent) such as dehydration, desert exposure, and extreme temperatures,
+        particularly on land routes through the Sahara.
+      </p>
+
+      <!-- Image 3: Causes of Death -->
+      <!-- Upload into the SAME folder: projects/missing-migrants/Causes_of_Death.jpeg -->
+      <div class="img-wrap">
+        <img src="./Causes_of_Death.jpeg" alt="Top causes of death in percent">
+        <div class="caption">Top causes of death (percent)</div>
+      </div>
+
+      <!-- Routes: incidents -->
+      <div class="sub-title">Migration Routes: Comparing Exposure and Fatality</div>
+      <p>
+        <strong>Routes by reported incidents.</strong> This bar chart shows the most frequently reported migration
+        routes in terms of number of incidents. The US Mexico border leads with approximately 35 percent of all
+        reported incidents, followed by the Afghanistan Iran corridor and Sahara Desert crossings. However, this
+        chart only reflects event frequency, not severity.
+      </p>
+
+      <!-- Image 4: Routes by incidents -->
+      <!-- Upload into the SAME folder: projects/missing-migrants/Top_Mirgation_Routes_by_Incidents.jpeg -->
+      <div class="img-wrap">
+        <img src="./Top_Mirgation_Routes_by_Incidents.jpeg" alt="Migration routes by percentage of recorded incidents">
+        <div class="caption">Migration routes by percentage of recorded incidents</div>
+      </div>
+
+      <p style="margin-top:16px;">
+        <strong>Routes by deaths and missing.</strong> When shifting the focus to the actual number of deaths and
+        disappearances, a stark contrast becomes evident: the Mediterranean route emerges as the deadliest by far,
+        accounting for over 50 percent of all recorded deaths globally. Other high risk corridors include the Sahara
+        Desert (11 percent), US Mexico border (10 percent), Canary Islands route (7.7 percent), Eastern Route to or
+        from EHOA (6.8 percent), and the Afghanistan Iran corridor (5 percent).
+      </p>
+
+      <p>
+        This divergence between frequency and fatality underscores the importance of looking beyond event counts.
+        While land crossings may be more common, maritime routes often involve capsized vessels and mass casualties
+        in single incidents. For this reason, our subsequent analyses concentrate on six key migration corridors
+        where the impact is most severe.
+      </p>
+
+      <!-- Image 5: Routes by deaths and missing -->
+      <!-- Upload into the SAME folder: projects/missing-migrants/Top_Migration_Routes_by_DaM.jpeg -->
+      <div class="img-wrap">
+        <img src="./Top_Migration_Routes_by_DaM.jpeg" alt="Migration routes by percentage of dead and missing">
+        <div class="caption">Migration routes by percentage of dead and missing</div>
+      </div>
+
+      <!-- Selected routes -->
+      <div class="note" style="margin-top:16px;">
+        <strong>Selected routes for deeper analysis.</strong>
+        Based on the visualizations above, our analysis focuses on six corridors that account for over 92 percent of
+        global deaths: the Mediterranean (Central, Western, Eastern), Sahara Desert, US Mexico border, Canary Islands
+        route, Eastern Route to or from EHOA, and the Afghanistan Iran corridor. These were selected due to their
+        high burden of fatality, geographic diversity, and representativeness of broader global patterns.
       </div>
     </div>
-    
-    <p>
-      The vast majority of recorded deaths involve men (66.3%), followed by women (20.9%)
-      and children (12.9%). This distribution reflects broader global migration patterns,
-      where adult males are more likely to undertake risky routes.
-    </p>
-    
-    <p>
-      However, the substantial proportion of women and children highlights growing
-      vulnerabilities across all migrant groups, particularly in family-based or
-      forced displacement contexts.
-    </p>
 
-  
-  </section>
-
-  <!-- BACK LINK -->
-  <section class="card">
-    <p>
-      <a href="../../index.html">← Back to portfolio</a>
-    </p>
-  </section>
-
-</main>
-    
   </main>
+
+  <footer>© 2026 Luis Fink</footer>
 </body>
 </html>
