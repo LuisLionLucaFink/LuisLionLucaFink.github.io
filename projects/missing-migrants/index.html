@@ -14,6 +14,23 @@
 
     .card + .card{margin-top:24px}
     h2{margin:0 0 12px;font-size:22px}
+
+    section {
+      margin-bottom: 48px;
+    }
+    
+    section h2 {
+      margin-top: 0;
+      font-size: 22px;
+    }
+    
+    iframe {
+      width: 100%;
+      height: 520px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    }
   </style>
 </head>
 <body>
@@ -23,60 +40,93 @@
   </header>
 
   <main>
-    <div class="card">
-      <h2>Overview</h2>
-    
-      <p>
-        This dashboard visualizes reported migrant deaths and disappearances worldwide and places them
-        in a spatial and temporal context. It highlights major international migration corridors
-        and applies GIS based analysis to uncover recurring geographic patterns and temporal trends.
-      </p>
-    
-      <p>
-        Using interactive maps and spatial clustering techniques, the visualizations aim to make
-        high risk regions and migration related mortality patterns more visible and comparable
-        across regions and time periods. The project is intended to support humanitarian awareness
-        and data driven interpretation of migration related risks.
-      </p>
+<main>
 
-    <div class="card">
-      <h2>Motivation</h2>
-    
-      <p>
-        Every year, thousands of migrants risk their lives crossing international borders.
-        Many do not survive. While these tragedies are often reduced to numbers, this project
-        uses data to identify where and when deaths and disappearances occur across major
-        migration routes.
-      </p>
-    
-      <p>
-        By uncovering spatial and temporal patterns in migrant fatalities across the six most
-        dangerous migration corridors, including the Mediterranean, the US Mexico border, the
-        Sahara Desert, and others, the analysis aims to support evidence based action. The goal
-        is not only to visualize loss, but to highlight where preventive measures could save the
-        most lives.
-      </p>
-    </div>
-    
-    <div class="card">
-      <h2>Data Source</h2>
-    
-      <p>
-        The data is provided by the International Organization for Migration through the Missing
-        Migrants Project. It documents deaths and disappearances during migration worldwide.
-        The dataset includes time, location, demographics, and reported cause of death.
-      </p>
-    
-      <p>
-        It covers the period from 2014 to the present and is continuously updated based on
-        reports from NGOs, media, and official sources.
-      </p>
-    </div>
-    
-      <p>
-        <a href="../../index.html">← Back to portfolio</a>
-      </p>
-    </div>
+  <!-- OVERVIEW -->
+  <section class="card">
+    <h2>Overview</h2>
+    <p>
+      This dashboard visualizes migrant deaths and disappearances across the globe.
+      It highlights major migration corridors and applies spatial analysis methods
+      to uncover meaningful geographic and temporal patterns.
+    </p>
+    <p>
+      The visualizations aim to support humanitarian understanding through
+      interactive maps and clustering techniques.
+    </p>
+  </section>
+
+  <!-- MOTIVATION -->
+  <section class="card">
+    <h2>Motivation</h2>
+    <p>
+      Every year, thousands of migrants risk their lives crossing international borders.
+      Many do not survive. While these tragedies are often reduced to numbers,
+      this project uses data to identify where and when these deaths and disappearances occur
+      across multiple major migration routes.
+    </p>
+    <p>
+      By uncovering spatial and temporal patterns in migrant fatalities across the
+      six most dangerous migration corridors including the Mediterranean,
+      the US-Mexico border and the Sahara Desert,
+      this analysis aims to support evidence-based action.
+    </p>
+    <p>
+      The goal is not only to visualize loss,
+      but to reveal where preventive measures could save the most lives.
+    </p>
+  </section>
+
+  <!-- DATA SOURCE -->
+  <section class="card">
+    <h2>Data Source</h2>
+    <p>
+      The data is provided by the International Organization for Migration through
+      the Missing Migrants Project.
+      It documents deaths and disappearances during migration worldwide.
+    </p>
+    <p>
+      The dataset includes time, location, demographic information,
+      and cause of death, spanning from 2014 to the present.
+      Data is continuously updated based on reports from NGOs,
+      media sources, and official institutions.
+    </p>
+  </section>
+
+  <!-- GLOBAL HEATMAP -->
+  <section class="card">
+    <h2>Global Heatmap of Incidents</h2>
+    <p>
+      To provide an initial spatial overview,
+      a global heatmap was created showing where migrant deaths
+      and disappearances have occurred since 2014.
+      Each data point is weighted by the number of dead and missing persons
+      to emphasize severity.
+    </p>
+    <p>
+      This visualization highlights high-risk zones and geographic concentrations
+      of migrant fatalities and serves as a baseline for
+      more detailed route-specific analyses.
+    </p>
+    <p>
+      Clear global patterns emerge, with high densities in North Africa,
+      the Central and Eastern Mediterranean,
+      the US-Mexico border region,
+      and the Afghanistan-Iran corridor.
+    </p>
+
+    <!-- FOLIUM MAP EMBED -->
+    <iframe src="heatmap_world.html"></iframe>
+  </section>
+
+  <!-- BACK LINK -->
+  <section class="card">
+    <p>
+      <a href="../../index.html">← Back to portfolio</a>
+    </p>
+  </section>
+
+</main>
     
   </main>
 </body>
