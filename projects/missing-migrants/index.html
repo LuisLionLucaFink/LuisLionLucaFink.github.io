@@ -583,8 +583,18 @@
       </div>
     </div>
 
+    <!-- Clustering (K-Means + DBSCAN) -->
     <div class="card" id="clustering">
-      <div class="section-title">K-Means Clustering (Spatial Segmentation)</div>
+      <div class="section-title">Clustering</div>
+    
+      <p>
+        To investigate spatial structure across the six selected migration corridors, I applied two complementary
+        clustering methods. K-Means provides a coarse global segmentation, while DBSCAN identifies density driven
+        clusters and can label spatial outliers as noise.
+      </p>
+    
+      <!-- K-Means -->
+      <div class="sub-title">K-Means Clustering (Spatial Segmentation)</div>
     
       <p>
         To investigate spatial structure in the six selected migration corridors, I applied K-Means clustering to all
@@ -620,19 +630,17 @@
       <p>
         While K-Means provides a useful first segmentation, it has clear limitations for globally distributed migration
         data. The method assigns every point to a cluster and therefore cannot explicitly treat isolated outliers as
-        noise. It also assumes compact, roughly spherical clusters, which is a poor fit for elongated route-like spatial
+        noise. It also assumes compact, roughly spherical clusters, which is a poor fit for elongated route like spatial
         patterns. Finally, a global three cluster solution necessarily simplifies regional nuances, especially for smaller
         or more diffuse routes.
       </p>
       <p>
         Despite these constraints, the results still help to visualise broad spatial separation between major migration
-        corridors and provide a clear baseline for more route-specific spatial analysis.
+        corridors and provide a clear baseline for more route specific spatial analysis.
       </p>
-    </div>
-
-    <!-- DBSCAN -->
-    <div class="card">
-      <div class="section-title">DBSCAN Clustering</div>
+    
+      <!-- DBSCAN -->
+      <div class="sub-title" style="margin-top:22px;">DBSCAN Clustering</div>
     
       <p>
         In this step, I applied DBSCAN, a density based clustering method, to identify spatial clusters driven by the
@@ -659,7 +667,7 @@
       <div class="media">
         <iframe src="./DBSCAN.html" loading="lazy"></iframe>
       </div>
-
+    
       <div class="sub-title">Advantages of DBSCAN in this Context</div>
       <p>
         DBSCAN is well suited here because it preserves the distinction between dense migration corridors and isolated
