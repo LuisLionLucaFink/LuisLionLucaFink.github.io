@@ -362,54 +362,45 @@
     /* SIDEBAR LINK PILLS */
     .quick-links{
       display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-    }
-    
-    .quick-links a{
-      display:inline-block;
-      padding:6px 14px;
-      border-radius:999px;
-      background:#f1f5ff;
-      color:#3366cc;
-      font-size:13px;
-      font-weight:700;
-      text-decoration:none;
-      transition:background 0.2s ease, transform 0.12s ease;
-    }
-    
-    /* SIDEBAR LINK PILLS – VERTICAL */
-    .quick-links{
-      display:flex;
       flex-direction:column;
       gap:8px;
     }
     
     .quick-links a{
-      display:block;
-      width:100%;
-      text-align:center;
-      padding:8px 0;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    
+      width:fit-content;
+      padding:7px 14px;
+    
       border-radius:999px;
-      background:#f1f5ff;
+      background:#f1f5fb;
       color:#3366cc;
+    
       font-size:13.5px;
-      font-weight:700;
+      font-weight:600;
       text-decoration:none;
-      transition:background 0.2s ease, transform 0.12s ease;
+    
+      transition: background 0.15s ease, transform 0.15s ease;
     }
     
     .quick-links a:hover{
-      background:#dde5ff;
-      transform:translateY(-1px);
-    }
-    .quick-links a.primary{
-      background:#3366cc;
-      color:#ffffff;
+      background:#e6edfb;
+      transform: translateX(2px);
     }
     
-    .quick-links a.primary:hover{
-      background:#274bb5;
+    /* Primary links (CV & LinkedIn) */
+    .quick-links a.primary{
+      background:#e0ebff;
+      color:#2f5fd0;
+      font-weight:700;
+    }
+    
+    /* Icon */
+    .quick-links .icon{
+      font-size:14px;
+      opacity:0.85;
     }
   </style>
 </head>
@@ -514,12 +505,22 @@
   
       <div class="sidebar-section-title">Quick Links</div>
       <div class="quick-links">
-        <a href="./Lebenslauf.pdf" target="_blank" class="primary">CV</a>
-        <a href="https://www.linkedin.com/in/luis-fink-5268043a4" target="_blank" rel="noopener" class="primary">
-          LinkedIn
+        <a href="./Lebenslauf.pdf" target="_blank" class="primary">
+          <span class="icon">📄</span> CV
         </a>
-        <a href="./Arbeitszeugnis_LuisFink_MVV.pdf" target="_blank">Work Reference</a>
-        <a href="mailto:luis.fink@gmx.de">Email</a>
+      
+        <a href="https://www.linkedin.com/in/luis-fink-5268043a4"
+           target="_blank" rel="noopener" class="primary">
+          <span class="icon">🔗</span> LinkedIn
+        </a>
+      
+        <a href="./Arbeitszeugnis_LuisFink_MVV.pdf" target="_blank">
+          <span class="icon">🧾</span> Work Reference
+        </a>
+      
+        <a href="mailto:luis.fink@gmx.de">
+          <span class="icon">✉️</span> Email
+        </a>
       </div>
   
       <div class="divider"></div>
