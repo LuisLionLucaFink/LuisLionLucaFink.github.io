@@ -335,6 +335,63 @@
       color: #555;
       line-height: 1.6;
     }
+    /* =========================
+       DARK MODE (system-based)
+       ========================= */
+    @media (prefers-color-scheme: dark){
+    
+      body{
+        background:#0f1115;
+        color:#e5e7eb;
+      }
+    
+      header,
+      .hero{
+        background:#0f1115;
+        border-bottom:1px solid #1f2937;
+      }
+    
+      .hero-bg{
+        opacity:0.18;
+        filter: grayscale(100%) contrast(1.2);
+      }
+    
+      main{
+        background:transparent;
+      }
+    
+      .project,
+      .card,
+      aside .card{
+        background:#151923;
+        box-shadow:0 8px 24px rgba(0,0,0,0.4);
+      }
+    
+      h1, h2, h3{
+        color:#f9fafb;
+      }
+    
+      p{
+        color:#d1d5db;
+      }
+    
+      a{
+        color:#7aa2ff;
+      }
+    
+      a:hover{
+        color:#9db5ff;
+      }
+    
+      .pill{
+        background:#1f2937;
+        color:#d1d5db;
+      }
+    
+      footer{
+        color:#9ca3af;
+      }
+    }
   </style>
 </head>
 
