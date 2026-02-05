@@ -36,9 +36,9 @@
     }
 
     main{
-      max-width:980px;
-      margin:42px auto;
-      padding:0 20px;
+      max-width: 960px;
+      margin: 42px auto;
+      padding: 0 240px 0 20px;
     }
 
     .card{
@@ -171,38 +171,38 @@
     
     .toc{
       position: fixed;
-      top: 120px;
-      right: 26px;
-      width: 220px;
-      background: #ffffff;
-      border: 1px solid #e6e6e6;
-      border-radius: 14px;
+      top: 140px;
+      right: 28px;
+      width: 210px;
+      background: #fbfbfd;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
       padding: 14px 16px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      font-size: 13.5px;
     }
     
     .toc strong{
       display: block;
-      margin-bottom: 8px;
-      font-size: 14.5px;
+      margin-bottom: 10px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #374151;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
     }
     
     .toc a{
       display: block;
-      margin: 6px 0;
-      color: #3366cc;
+      padding: 4px 0;
+      color: #2563eb;
       text-decoration: none;
       font-weight: 600;
     }
     
     .toc a:hover{
+      color: #1d4ed8;
       text-decoration: underline;
-    }
-    main{
-      max-width: 980px;
-      margin: 42px auto;
-      padding: 0 260px 0 20px;
     }
   </style>
 </head>
@@ -640,6 +640,14 @@
       </p>
     </div>
 
+    <div class="card" id="spatial-autocorrelation">
+      <div class="section-title">
+        Spatial Autocorrelation Analysis (Global & Local Moran’s I)
+      </div>
+
+    <div class="card" id="conclusion">
+      <div class="section-title">Conclusion</div>
+
   </main>
   <nav class="toc">
     <strong>Contents</strong>
@@ -651,6 +659,8 @@
     <a href="#temporal">Temporal Patterns</a>
     <a href="#clustering">Clustering (K-Means & DBSCAN)</a>
     <a href="#kde">KDE Hotspot Analysis</a>
+    <a href="#spatial-autocorrelation">Spatial Autocorrelation</a>
+    <a href="#conclusion">Conclusion</a>
   </nav>
 
   <footer>© 2026 Luis Fink</footer>
