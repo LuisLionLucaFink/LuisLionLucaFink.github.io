@@ -736,6 +736,106 @@
       <div class="section-title">
         Spatial Autocorrelation Analysis (Global & Local Moran’s I)
       </div>
+
+      <p>
+        As a final analytical step, spatial autocorrelation methods were applied to statistically
+        assess whether migrant deaths and disappearances show non-random spatial patterns.
+        While previous analyses identified hotspots visually and descriptively, Moran’s I adds
+        a formal statistical layer to evaluate whether incidents are spatially clustered beyond
+        random distribution and where such clusters occur.
+      </p>
+    
+      <p>
+        This approach strengthens the robustness of the spatial analysis and helps to identify
+        regions where high or low fatality patterns are consistently reinforced by neighboring
+        incidents, providing an additional basis for geographically targeted intervention.
+      </p>
+    
+      <div class="sub-title">Global Moran’s I</div>
+      <p>
+        Global Moran’s I was calculated using the total number of deaths and missing persons per
+        incident. The resulting value was approximately <strong>-0.0001</strong>, with a highly
+        significant p-value (<strong>p = 0.001</strong>) and a z-score of <strong>-10.73</strong>.
+        Although the magnitude of the statistic is very small, the significant result indicates
+        that deaths are not randomly distributed in space and that localized spatial structures
+        exist.
+      </p>
+    
+      <p>
+        The spatial weight matrix was defined using a threshold distance of 700 kilometers. This
+        distance was chosen to reflect the global scale of the dataset and to allow spatial
+        relationships across borders and maritime spaces where incidents may still be closely
+        related.
+      </p>
+    
+      <div class="sub-title">Local Moran’s I (LISA): Regional Cluster Analysis</div>
+      <p>
+        Due to the strong global heterogeneity of migration routes, the Local Moran’s I analysis
+        was conducted separately for three regional subclusters. This regionalization allows
+        more meaningful neighborhood definitions and avoids distortions caused by globally
+        uniform distance thresholds.
+      </p>
+    
+      <p>
+        The following distance thresholds were used:
+        200 kilometers for the North Africa cluster (Mediterranean, Sahara, Canary Islands),
+        500 kilometers for the US–Mexico border region, and 600 kilometers for the Eastern cluster
+        covering the Afghanistan–Iran corridor and the Horn of Africa. These values reflect the
+        differing spatial densities and dispersions of incidents across regions.
+      </p>
+    
+      <div class="sub-title">North Africa Cluster</div>
+      <p>
+        Several statistically significant hotspots were identified along the Central Mediterranean,
+        particularly off the Libyan coast, confirming extremely dangerous maritime crossings.
+        Additional hotspots appear across parts of the Sahara and West Africa, highlighting
+        high-risk desert routes. At the same time, coldspots are detected in nearby areas with
+        consistently lower fatality counts.
+      </p>
+    
+      <p>
+        The close spatial proximity of hotspots and coldspots along Mediterranean routes reflects
+        the heterogeneous nature of migration risk. Large-scale shipwrecks with many fatalities
+        can occur very close to locations where incidents involve fewer deaths, for example due
+        to partial rescues or smaller vessels.
+      </p>
+    
+      <div class="media">
+        <iframe src="./LISA_NorthAfrika.html" loading="lazy"></iframe>
+      </div>
+    
+      <div class="sub-title">US–Mexico Border Cluster</div>
+      <p>
+        Incidents in the US–Mexico border region are highly concentrated along specific migration
+        corridors. No statistically significant hotspots were detected. Instead, several coldspots
+        emerge, indicating areas where incidents consistently involve low numbers of deaths.
+      </p>
+    
+      <p>
+        This pattern reflects the nature of migration dynamics along this land border, where many
+        incidents involve individual crossings or small groups rather than mass-casualty events.
+      </p>
+    
+      <div class="media">
+        <iframe src="./LISA_USMexico.html" loading="lazy"></iframe>
+      </div>
+    
+      <div class="sub-title">Eastern Cluster</div>
+      <p>
+        The Eastern cluster separates into two spatial subregions: the Afghanistan–Iran land route
+        and the Horn of Africa and Gulf of Aden maritime corridor. Only two statistically significant
+        hotspots were detected, one in Iran and one in Ethiopia.
+      </p>
+    
+      <p>
+        Most other significant clusters in this region are coldspots, particularly along the Red Sea
+        and Gulf of Aden. This indicates frequent incidents with relatively low fatality counts per
+        event, resulting in weaker spatial concentration compared to the Mediterranean.
+      </p>
+    
+      <div class="media">
+        <iframe src="./LISA_Eastern.html" loading="lazy"></iframe>
+      </div>
     </div>
 
     <div class="card" id="conclusion">
