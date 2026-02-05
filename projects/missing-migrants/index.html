@@ -213,6 +213,75 @@
         padding: 0 20px;
       }
     }
+    /* Contents (TOC) – clean floating card */
+    .toc{
+      position: fixed;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 250px;
+    
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(6px);
+    
+      border: 1px solid #e6e6e6;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    
+      padding: 16px 16px 14px;
+      z-index: 9999;
+    }
+    
+    /* TOC title */
+    .toc-title{
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 12px;
+    }
+    
+    /* TOC links */
+    .toc a{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    
+      padding: 8px 10px;
+      margin-bottom: 6px;
+    
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #2f5fbf;
+      text-decoration: none;
+    }
+    
+    /* Small bullet indicator */
+    .toc a::before{
+      content: "•";
+      font-size: 18px;
+      color: #b7c6ff;
+      line-height: 1;
+    }
+    
+    /* Hover effect */
+    .toc a:hover{
+      background: #f4f6ff;
+    }
+    
+    /* Active feel on click */
+    .toc a:active{
+      transform: translateX(2px);
+    }
+    
+    /* Hide on smaller screens */
+    @media (max-width: 1200px){
+      .toc{
+        display: none;
+      }
+    }
   </style>
 </head>
 
@@ -660,17 +729,18 @@
     </div>
 
   </main>
-  <nav class="toc">
-    <strong>Contents</strong>
+  <nav class="toc" aria-label="Contents">
+    <div class="toc-title">Contents</div>
+  
     <a href="#overview">Overview</a>
     <a href="#motivation">Motivation</a>
     <a href="#data-source">Data Source</a>
-    <a href="#heatmap">Global Heatmap</a>
+    <a href="#global-heatmap">Global Heatmap</a>
     <a href="#exploratory">Exploratory Visualizations</a>
     <a href="#temporal">Temporal Patterns</a>
-    <a href="#clustering">Clustering (K-Means & DBSCAN)</a>
+    <a href="#clustering">Clustering</a>
     <a href="#kde">KDE Hotspot Analysis</a>
-    <a href="#spatial-autocorrelation">Spatial Autocorrelation</a>
+    <a href="#spatial-autocorr">Spatial Autocorrelation</a>
     <a href="#conclusion">Conclusion</a>
   </nav>
 
