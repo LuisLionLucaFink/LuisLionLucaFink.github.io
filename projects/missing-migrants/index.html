@@ -513,6 +513,45 @@
       </p>
     </div>
 
+    <!-- DBSCAN -->
+    <div class="card">
+      <div class="section-title">DBSCAN Clustering</div>
+    
+      <p>
+        In this step, I applied DBSCAN, a density based clustering method, to identify spatial clusters driven by the
+        concentration of incidents across the six selected migration corridors. Unlike K Means, DBSCAN does not require
+        specifying the number of clusters in advance and can explicitly label noise points, which is useful for global
+        datasets with outliers and uneven spatial density.
+      </p>
+    
+      <p>
+        After extensive parameter tuning and multiple iterations, I selected eps equals 0.15 and min samples equals 10.
+        This configuration captured the dominant global cluster structure while maintaining a meaningful separation between
+        dense corridors and spatial outliers.
+      </p>
+    
+      <div class="sub-title">Results and Interpretation</div>
+      <p>
+        DBSCAN identifies a clear cluster along the US Mexico border region. A second and largest cluster covers North
+        Africa and the Mediterranean, including the Central Mediterranean and Sahara related areas, reflecting the highest
+        density of severe cases. A separate cluster captures the Canary Islands corridor, which is geographically
+        distinct from Mediterranean crossings. Another cluster isolates cases along the Afghanistan Iran corridor.
+        In addition, DBSCAN labels many scattered points as noise, representing spatial outliers across various regions.
+      </p>
+    
+      <div class="sub-title">Advantages of DBSCAN in this Context</div>
+      <p>
+        DBSCAN is well suited here because it preserves the distinction between dense migration corridors and isolated
+        incidents. This avoids a key issue of K Means, where all points must be assigned to a cluster even when the
+        assignment is not meaningful. The resulting clusters align closely with the known geography of the dominant
+        corridors while keeping globally scattered cases separate as noise.
+      </p>
+    
+      <div class="media">
+        <iframe src="./DBSCAN.html" loading="lazy"></iframe>
+      </div>
+    </div>
+
   </main>
 
   <footer>© 2026 Luis Fink</footer>
