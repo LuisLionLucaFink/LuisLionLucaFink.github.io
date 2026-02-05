@@ -378,9 +378,38 @@
       transition:background 0.2s ease, transform 0.12s ease;
     }
     
+    /* SIDEBAR LINK PILLS – VERTICAL */
+    .quick-links{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    
+    .quick-links a{
+      display:block;
+      width:100%;
+      text-align:center;
+      padding:8px 0;
+      border-radius:999px;
+      background:#f1f5ff;
+      color:#3366cc;
+      font-size:13.5px;
+      font-weight:700;
+      text-decoration:none;
+      transition:background 0.2s ease, transform 0.12s ease;
+    }
+    
     .quick-links a:hover{
       background:#dde5ff;
       transform:translateY(-1px);
+    }
+    .quick-links a.primary{
+      background:#3366cc;
+      color:#ffffff;
+    }
+    
+    .quick-links a.primary:hover{
+      background:#274bb5;
     }
   </style>
 </head>
