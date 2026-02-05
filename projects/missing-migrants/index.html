@@ -226,7 +226,7 @@
     <div class="card">
       <div class="section-title">Global Heatmap of Incidents</div>
       <p>
-        To provide an initial spatial overview, we created a global heatmap that shows where migrant deaths and
+        To provide an initial spatial overview, I created a global heatmap that shows where migrant deaths and
         disappearances have occurred since 2014. Each data point is weighted by the number of dead and missing
         persons to emphasize severity.
       </p>
@@ -431,7 +431,7 @@
 
       <div class="sub-title">Maps: Monthly and Yearly Spatial Shifts</div>
       <p>
-        To incorporate spatial aspects into the temporal analysis, we calculated weighted average incident
+        To incorporate spatial aspects into the temporal analysis, I calculated weighted average incident
         locations for both months and years. The incident coordinates are weighted by the number of deaths and
         missing persons, so that high-severity events influence the spatial center more strongly than low-impact
         incidents.
@@ -464,6 +464,53 @@
       <div class="media">
         <iframe src="./Locations_by_Year.html" loading="lazy"></iframe>
       </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">Step 7: K-Means Clustering (Spatial Segmentation)</div>
+    
+      <p>
+        To investigate spatial structure in the six selected migration corridors, we applied K-Means clustering to all
+        incidents. Because the dataset spans globally distributed routes, the goal is to test whether an unsupervised
+        method can separate incidents into broad geographic zones that correspond to major migration regions.
+      </p>
+    
+      <div class="sub-title">Cluster Selection using the Elbow Method</div>
+      <p>
+        We used the Elbow Method to identify a suitable number of clusters. The inertia decreases sharply up to k equals
+        3, after which the curve flattens, suggesting diminishing returns when adding more clusters. Based on this
+        pattern, we selected k equals 3.
+      </p>
+    
+      <div class="figure-block">
+        <img src="./Elbow_KMeans.jpg" alt="Elbow method for selecting k in K-Means">
+      </div>
+    
+      <div class="sub-title">Resulting Clusters and Interpretation</div>
+      <p>
+        The clustering separates the incidents into three broad spatial groups. One cluster captures incidents around the
+        US Mexico border and parts of Central America. A second cluster groups incidents across Eastern Africa, the Horn
+        of Africa, the Middle East, and the Afghanistan Iran corridor. The third cluster concentrates around North Africa,
+        the Sahara, and the broader Mediterranean zone, reflecting the high density of maritime and desert incidents in
+        that region.
+      </p>
+    
+      <div class="media">
+        <iframe src="./KMeans.html" loading="lazy"></iframe>
+      </div>
+    
+      <div class="sub-title">Limitations of K-Means in this Context</div>
+      <p>
+        While K-Means provides a useful first segmentation, it has clear limitations for globally distributed migration
+        data. The method assigns every point to a cluster and therefore cannot explicitly treat isolated outliers as
+        noise. It also assumes compact, roughly spherical clusters, which is a poor fit for elongated route-like spatial
+        patterns. Finally, a global three cluster solution necessarily simplifies regional nuances, especially for smaller
+        or more diffuse routes.
+      </p>
+      <p>
+        Despite these constraints, the results still help to visualise broad spatial separation between major migration
+        corridors and provide a clear baseline for more route-specific spatial analysis.
+      </p>
     </div>
 
   </main>
