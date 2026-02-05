@@ -1,143 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Luis Fink – Spatial Data Science</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Luis Fink – Spatial Data Science</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f6f8;
-            color: #222;
-        }
+  <style>
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:#f5f6f8;
+      color:#222;
+    }
 
-        header {
-            background: #ffffff;
-            padding: 48px 20px;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-bottom: 1px solid #e6e6e6;
-        }
+    header{
+      background:#ffffff;
+      padding:48px 20px;
+      text-align:center;
+      box-shadow:0 2px 8px rgba(0,0,0,0.08);
+      border-bottom:1px solid #e6e6e6;
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 34px;
-        }
+    header h1{
+      margin:0;
+      font-size:34px;
+    }
 
-        header p {
-            margin-top: 10px;
-            font-size: 16px;
-            color: #555;
-        }
+    header p{
+      margin-top:10px;
+      font-size:16px;
+      color:#555;
+    }
 
-        main {
-            max-width: 900px;
-            margin: 48px auto;
-            padding: 0 20px;
-        }
+    /* Layout */
+    .layout{
+      max-width:1100px;
+      margin:48px auto;
+      padding:0 20px;
+      display:grid;
+      grid-template-columns:1fr 260px;
+      gap:26px;
+    }
 
-        .project {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 22px 26px;
-            margin-bottom: 28px;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-        }
+    main{
+      min-width:0;
+    }
 
-        .project h2 {
-            margin-top: 0;
-        }
+    /* Project cards */
+    .project{
+      background:#ffffff;
+      border-radius:12px;
+      padding:22px 26px;
+      margin-bottom:28px;
+      box-shadow:0 4px 14px rgba(0,0,0,0.08);
+    }
 
-        .project p {
-            line-height: 1.5;
-        }
+    .project h2{
+      margin-top:0;
+    }
 
-        .links a {
-            margin-right: 14px;
-            color: #3366cc;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    .project p{
+      line-height:1.5;
+    }
 
-        .links a:hover {
-            text-decoration: underline;
-        }
+    .links a{
+      margin-right:14px;
+      color:#3366cc;
+      text-decoration:none;
+      font-weight:700;
+    }
 
-        footer {
-            text-align: center;
-            padding: 24px;
-            font-size: 13px;
-            color: #666;
-        }
-    </style>
+    .links a:hover{
+      text-decoration:underline;
+    }
+
+    /* Sidebar */
+    aside .card{
+      background:#ffffff;
+      border-radius:14px;
+      padding:22px 20px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+      position:sticky;
+      top:26px;
+    }
+
+    .profile-img{
+      width:120px;
+      height:120px;
+      object-fit:cover;
+      border-radius:50%;
+      display:block;
+      margin:0 auto 14px;
+      border:1px solid #e6e6e6;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .profile-name{
+      text-align:center;
+      font-weight:800;
+      font-size:16px;
+      margin-bottom:4px;
+    }
+
+    .profile-role{
+      text-align:center;
+      font-size:13.5px;
+      color:#555;
+      margin-bottom:18px;
+    }
+
+    .section-title{
+      font-size:15px;
+      font-weight:800;
+      margin-bottom:10px;
+    }
+
+    .quick a{
+      display:block;
+      color:#3366cc;
+      text-decoration:none;
+      font-weight:700;
+      margin-bottom:8px;
+      font-size:14px;
+    }
+
+    .quick a:hover{
+      text-decoration:underline;
+    }
+
+    .meta{
+      margin-top:16px;
+      font-size:13.5px;
+      color:#555;
+    }
+
+    .pill{
+      display:inline-block;
+      background:#eef2f7;
+      border-radius:999px;
+      padding:4px 10px;
+      font-size:12px;
+      margin:4px 4px 0 0;
+    }
+
+    footer{
+      text-align:center;
+      padding:26px;
+      font-size:13px;
+      color:#666;
+    }
+
+    /* Mobile */
+    @media (max-width:900px){
+      .layout{
+        grid-template-columns:1fr;
+      }
+      aside{
+        order:-1;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
 <header>
-    <h1>Luis Fink</h1>
+  <h1>Luis Fink</h1>
 
-    <p><strong>Portfolio of Selected Academic Projects</strong></p>
+  <p><strong>Portfolio of Selected Academic Projects</strong></p>
 
-    <p style="max-width:700px; margin: 18px auto 0; color:#666;">
-        Projects combining large-scale data processing, GIS-based analysis,
-        API-based data extraction, text mining and interactive geovisualization.
-    </p>
+  <p style="max-width:700px; margin:18px auto 0; color:#666;">
+    Projects combining large-scale data processing, GIS-based analysis,
+    API-based data extraction, text mining and interactive geovisualization.
+  </p>
 </header>
 
-<main>
+<div class="layout">
+
+  <!-- MAIN CONTENT -->
+  <main>
 
     <div class="project">
-        <h2>Mapping the Invisible</h2>
-        <p>
-            Spatial & Temporal Analysis of Death and Missing Along International Migration Routes.
-        </p>
-        <div class="links">
-            <a href="projects/missing-migrants/index.html">
-                Project Page
-            </a>
-        </div>
+      <h2>Mapping the Invisible</h2>
+      <p>
+        Spatial and temporal analysis of deaths and missing persons along international
+        migration routes using clustering, hotspot analysis and interactive geovisualization.
+      </p>
+      <div class="links">
+        <a href="projects/missing-migrants/index.html">Project Page</a>
+      </div>
     </div>
 
     <div class="project">
-        <h2>Global Distribution of Reddit Country Mentions</h2>
-        <p>
-            Large-scale text analysis of over 400 million Reddit posts using multilingual
-            country name extraction and the Aho–Corasick algorithm, visualized in an interactive Folium map.
-        </p>
-        <div class="links">
-            <a href="./Global_Distribution_of_Reddit_Country_Mentions_2025.html">Interactive Map</a>
-        </div>
+      <h2>Global Distribution of Reddit Country Mentions</h2>
+      <p>
+        Large-scale text analysis of over 400 million Reddit posts using multilingual
+        country name extraction and the Aho–Corasick algorithm, visualized in an interactive Folium map.
+      </p>
+      <div class="links">
+        <a href="./Global_Distribution_of_Reddit_Country_Mentions_2025.html">Interactive Map</a>
+      </div>
     </div>
 
     <div class="project">
-        <h2>Historical Street Names of Vienna</h2>
-        <p>
-            Interactive Folium map linking OpenStreetMap street geometries with
-            Wikidata relations to explore the historical context of street names in Vienna.
-        </p>
-        <div class="links">
-            <a href="./Historical_Street_Names_of_Vienna.html">Interactive Map</a>
-        </div>
+      <h2>Historical Street Names of Vienna</h2>
+      <p>
+        Interactive Folium map combining OpenStreetMap geometries with Wikidata relations
+        to explore the historical context of street names in Vienna.
+      </p>
+      <div class="links">
+        <a href="./Historical_Street_Names_of_Vienna.html">Interactive Map</a>
+      </div>
     </div>
 
     <div class="project">
-        <h2>Bachelor Thesis</h2>
-        <p>
-            “Crime Hot Spot Mapping - Methodenvergleich und praktischer Versuch in ArcGIS Pro”
-        </p>
-        <div class="links">
-            <a href="./Bachelorarbeit_LuisFink_12018892.pdf" target="_blank">
-                PDF Thesis
-            </a>
-        </div>
+      <h2>Bachelor Thesis</h2>
+      <p>
+        "Crime Hot Spot Mapping – Methodenvergleich und praktischer Versuch in ArcGIS Pro"
+        (Crime Hot Spot Mapping – Method comparison and applied analysis in ArcGIS Pro)
+      </p>
+      <div class="links">
+        <a href="./Bachelorarbeit_LuisFink_12018892.pdf" target="_blank">PDF Thesis</a>
+      </div>
     </div>
 
-</main>
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside>
+    <div class="card">
+
+      <img src="./profile.jpg" alt="Luis Fink" class="profile-img">
+
+      <div class="profile-name">Luis Fink</div>
+      <div class="profile-role">
+        M.Sc. Spatial Data Science<br>
+        University of Vienna
+      </div>
+
+      <div class="section-title">Quick Links</div>
+      <div class="quick">
+        <a href="https://www.linkedin.com/in/luis-fink-5268043a4" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="./Lebenslauf.pdf" target="_blank">CV (PDF)</a>
+        <a href="./Arbeitszeugnis_LuisFink_MVV.pdf" target="_blank">Work Reference</a>
+        <a href="mailto:luis.fink@gmx.de">Email</a>
+      </div>
+
+      <div class="meta">
+        Focus areas:
+        <div>
+          <span class="pill">Python</span>
+          <span class="pill">GIS</span>
+          <span class="pill">GeoAI</span>
+          <span class="pill">SQL</span>
+          <span class="pill">Spatial Analysis</span>
+          <span class="pill">Interactive Maps</span>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+</div>
 
 <footer>
-    © 2026 Luis Fink
+  © 2026 Luis Fink
 </footer>
 
 </body>
