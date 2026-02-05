@@ -393,6 +393,27 @@
       color:#2f5fd0;
       font-weight:700;
     }
+    .quick-links a{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 0;
+      font-weight:600;
+      color:#3366cc;
+      text-decoration:none;
+    }
+    
+    .quick-links a:hover{
+      text-decoration:underline;
+    }
+    
+    .dot{
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:#c7d2fe;
+      flex-shrink:0;
+    }
   </style>
 </head>
 
@@ -496,9 +517,9 @@
   
       <div class="sidebar-section-title">Quick Links</div>
       <div class="quick-links">
-        <a href="./Lebenslauf.pdf" target="_blank" class="primary">CV</a>
-        <a href="https://www.linkedin.com/in/luis-fink-5268043a4" target="_blank" rel="noopener" class="primary">LinkedIn</a>
-        <a href="mailto:luis.fink@gmx.de" class="primary">Email</a>
+        <a href="./Lebenslauf.pdf" target="_blank"><span class="dot"></span>CV</a>
+        <a href="https://www.linkedin.com/in/luis-fink-5268043a4" target="_blank" rel="noopener"><span class="dot"></span>LinkedIn</a>
+        <a href="mailto:luis.fink@gmx.de"><span class="dot"></span>Email</a>
       </div>
   
       <div class="divider"></div>
