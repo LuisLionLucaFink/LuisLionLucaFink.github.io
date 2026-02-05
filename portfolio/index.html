@@ -1,1 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Luis Fink – Spatial Data Science</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <style>
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:#f5f6f8;
+      color:#222;
+    }
+
+    header{
+      background:#ffffff;
+      padding:48px 20px;
+      text-align:center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      border-bottom:1px solid #e6e6e6;
+    }
+
+    header h1{
+      margin:0;
+      font-size:34px;
+    }
+
+    header p{
+      margin-top:10px;
+      font-size:16px;
+      color:#555;
+    }
+
+    /* Layout */
+    .layout{
+      max-width:1100px;
+      margin:48px auto;
+      padding:0 20px;
+      display:grid;
+      grid-template-columns:1fr 260px;
+      gap:26px;
+    }
+
+    main{
+      min-width:0;
+    }
+
+    /* Project cards */
+    .project{
+      background:#ffffff;
+      border-radius:12px;
+      padding:20px 24px;
+      margin-bottom:28px;
+      box-shadow:0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    .project h2{
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 21px;        /* vorher vermutlich ~22–24px */
+      font-weight: 700;       /* statt 800 */
+      line-height: 1.25;
+    }
+
+    .project p{
+      line-height:1.5;
+    }
+
+    .links a{
+      margin-right:14px;
+      color:#3366cc;
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    .links a:hover{
+      text-decoration:underline;
+    }
+
+    /* Sidebar */
+    aside .card{
+      background:#ffffff;
+      border-radius:14px;
+      padding:22px 20px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+      position:sticky;
+      top:26px;
+    }
+
+    .skills span{
+      display:inline-block;
+      background:#f1f5f9;
+      border-radius:8px;
+      padding:6px 10px;
+      font-size:12px;
+      margin:4px 4px 0 0;
+    }
+
+    .profile-img{
+      width:120px;
+      height:120px;
+      object-fit:cover;
+      border-radius:50%;
+      display:block;
+      margin:0 auto 14px;
+      border:1px solid #e6e6e6;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .profile-name{
+      text-align:center;
+      font-weight:800;
+      font-size:16px;
+      margin-bottom:4px;
+    }
+
+    .profile-role{
+      text-align:center;
+      font-size:13.5px;
+      color:#555;
+      margin-bottom:18px;
+    }
+
+    .section-title{
+      font-size:15px;
+      font-weight:800;
+      margin-bottom:10px;
+    }
+
+    .quick a{
+      display:block;
+      color:#3366cc;
+      text-decoration:none;
+      font-weight:700;
+      margin-bottom:8px;
+      font-size:14px;
+    }
+
+    .quick a:hover{
+      text-decoration:underline;
+    }
+
+    .meta{
+      margin-top:16px;
+      font-size:13.5px;
+      color:#555;
+    }
+
+    .pill{
+      display:inline-block;
+      background:#eef2f7;
+      border-radius:999px;
+      padding:4px 10px;
+      font-size:12px;
+      margin:4px 4px 0 0;
+    }
+
+    footer{
+      text-align:center;
+      padding:26px;
+      font-size:13px;
+      color:#666;
+    }
+
+    /* Mobile */
+    @media (max-width:900px){
+      .layout{
+        grid-template-columns:1fr;
+      }
+      aside{
+        order:-1;
+      }
+    }
+        .quick-links{
+      list-style:none;
+      padding:0;
+    }
+    
+    .quick-links li{
+      margin-bottom:6px;
+    }
+    .project{
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    
+    .project:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+    }
+    .quick{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      margin-top:8px;
+    }
+    
+    .quick a{
+      font-weight:600;
+      color:#3366cc;
+      text-decoration:none;
+    }
+    
+    .quick a:hover{
+      text-decoration:underline;
+    }
+    .sidebar{
+      width:300px;
+    }
+    
+    .sidebar-card{
+      background:#ffffff;
+      border-radius:16px;
+      padding:24px 22px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+    
+    .profile-img{
+      width:120px;
+      height:120px;
+      object-fit:cover;
+      border-radius:50%;
+      margin-bottom:14px;
+    }
+    
+    .profile-name{
+      font-size:18px;
+      font-weight:800;
+      margin-bottom:4px;
+    }
+    
+    .profile-role{
+      font-size:14px;
+      color:#555;
+      line-height:1.4;
+      margin-bottom:14px;
+    }
+    
+    .profile-about{
+      font-size:14.5px;
+      line-height:1.6;
+      color:#333;
+      margin-bottom:16px;
+    }
+    
+    .sidebar-section-title{
+      font-size:14px;
+      font-weight:800;
+      text-align:left;
+      margin-bottom:8px;
+      color:#222;
+    }
+    
+    .quick-links a{
+      display:block;
+      text-align:left;
+      margin:6px 0;
+      font-weight:700;
+      color:#3366cc;
+      text-decoration:none;
+    }
+    
+    .quick-links a:hover{
+      text-decoration:underline;
+    }
+    
+    .pill-group{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    
+    .pill{
+      background:#f0f2f5;
+      border-radius:999px;
+      padding:5px 10px;
+      font-size:12.5px;
+      color:#333;
+      font-weight:600;
+    }
+    
+    .divider{
+      height:1px;
+      background:#e6e6e6;
+      margin:18px 0;
+    }
+    
+    /* Mobile */
+    @media (max-width: 900px){
+      .sidebar{
+        width:100%;
+      }
+    }
+    /* HERO HEADER WITH BACKGROUND IMAGE */
+    .hero{
+      position: relative;
+      overflow: hidden;
+      background: #ffffff;
+      padding: 64px 20px 56px;
+      text-align: center;
+      border-bottom: 1px solid #e6e6e6;
+    }
+    
+    /* Hintergrundbild */
+    .hero-bg{
+      position: absolute;
+      inset: 0;
+      background-image: url("./Header.jpg");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.20;
+      filter: grayscale(50%) contrast(1.0);
+      z-index: 0;
+    }
+    
+    /* Inhalt bleibt oben */
+    .hero-content{
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .hero h1{
+      margin: 0;
+      font-size: 36px;
+      margin-bottom: 6px;
+    }
+    
+    .hero p{
+      margin-top: 8px;
+      font-size: 16px;
+      color: #444;
+    }
+    
+    .hero-sub{
+      max-width: 700px;
+      margin: 16px auto 0;
+      color: #555;
+      line-height: 1.6;
+    }
+    /* PROJECT LINK PILLS */
+    .project-links{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    
+    .project-links a{
+      display:inline-block;
+      padding:6px 14px;
+      border-radius:999px;
+      background:#eef2ff;
+      color:#3366cc;
+      font-size:13.5px;
+      font-weight:700;
+      text-decoration:none;
+      transition:background 0.2s ease, transform 0.12s ease;
+    }
+    
+    .project-links a:hover{
+      background:#dde5ff;
+      transform:translateY(-1px);
+    }
+    /* SIDEBAR LINK PILLS */
+    .quick-links{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    
+    .quick-links a{
+      display:inline-block;
+      width:fit-content;
+    
+      padding:5px 12px;
+      border-radius:8px;
+    
+      background:#f4f6fa;
+      color:#3366cc;
+    
+      font-size:13px;
+      font-weight:600;
+      text-decoration:none;
+    
+      transition: background 0.15s ease;
+    }
+    
+    .quick-links a:hover{
+      background:#e8edf7;
+    }
+    
+    /* leicht hervorgehoben, aber nicht dominant */
+    .quick-links a.primary{
+      background:#e9efff;
+      color:#2f5fd0;
+      font-weight:700;
+    }
+    .quick-links a{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 0;
+      font-weight:600;
+      color:#3366cc;
+      text-decoration:none;
+    }
+    
+    .quick-links a:hover{
+      text-decoration:underline;
+    }
+    
+    .dot{
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:#c7d2fe;
+      flex-shrink:0;
+    }
+    /* Sidebar quick links – clean list style */
+    .sidebar-links{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    
+    .sidebar-links a{
+      position:relative;
+      padding-left:14px;
+      font-size:14px;
+      font-weight:600;
+      color:#3366cc;
+      text-decoration:none;
+      line-height:1.4;
+    }
+    
+    .sidebar-links a:hover{
+      text-decoration:underline;
+    }
+    .sidebar-links{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    
+    .sidebar-links a{
+      font-size:14px;
+      font-weight:600;
+      color:#3366cc;
+      text-decoration:none;
+      line-height:1.4;
+    }
+    
+    .sidebar-links a:hover{
+      text-decoration:underline;
+    }
+    .sidebar-links{
+      list-style: disc;
+      padding-left: 18px;   /* Abstand für Punkte */
+      margin: 0;
+    }
+    
+    .sidebar-links li{
+      margin-bottom: 8px;
+    }
+    
+    .sidebar-links a{
+      font-size: 14px;
+      font-weight: 600;
+      color: #3366cc;
+      text-decoration: none;
+    }
+    
+    .sidebar-links a:hover{
+      text-decoration: underline;
+    }
+    /* ===== SIDEBAR QUICK LINKS (FINAL TWEAK) ===== */
+    .sidebar-links{
+      list-style: disc;
+      padding-left: 10px;     /* weniger Einzug → Punkt näher am Text */
+      margin: 0;
+    }
+    
+    .sidebar-links li{
+      margin: 0 0 4px 0;      /* geringerer vertikaler Abstand */
+      color: #7f9cf5;         /* Punktfarbe */
+    }
+    
+    .sidebar-links a{
+      color: #3366cc;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      padding-left: 2px;      /* Text minimal näher an Punkt */
+    }
+    
+    .sidebar-links a:hover{
+      text-decoration: underline;
+    }
+    /* Profilbereich bewusst zentriert */
+    .profile-header{
+      text-align: center;
+    }
+    
+    /* Sidebar-Links bewusst linksbündig */
+    .sidebar-links{
+      list-style: disc;
+      padding-left: 14px;
+      margin: 0;
+      text-align: left;
+    }
+    
+    .sidebar-links li{
+      margin-bottom: 4px;
+      color: #9bb3f0;
+    }
+    
+    .sidebar-links a{
+      color: #3366cc;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    .sidebar-links a:hover{
+      text-decoration: underline;
+    }
+    .hero{
+      padding: 52px 20px 50px;
+      text-align: center;
+      position: relative;
+    }
+    
+    .hero h1{
+      font-size: 36px;
+      margin-bottom: 10px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    }
+    
+    .hero p{
+      margin-top: 8px;
+      color: #444;
+    }
+    
+    .hero-sub{
+      max-width: 700px;
+      margin: 16px auto 0;
+      color: #555;
+      line-height: 1.5;
+    }
+    .hero h1,
+    .hero p,
+    .hero-sub{
+      text-shadow: 0 1px 3px rgba(255,255,255,0.6);
+    }
+    /* FEATURED PROJECT CARD */
+    .project.featured{
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      border-left: 4px solid #c7d2fe; /* sehr dezentes Blau */
+      padding-left: 22px; /* Ausgleich für Rand */
+    }
+    
+    /* Featured label */
+    .featured-label{
+      display:inline-block;
+      margin-bottom:6px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:0.04em;
+      color:#5b6fd6;
+    }
+    .project{
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header class="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-content">
+    <h1>Luis Fink</h1>
+
+    <p><strong>Portfolio of Selected Academic Projects</strong></p>
+
+    <p class="hero-sub">
+      Projects combining large-scale data processing, GIS-based analysis,
+      API-based data extraction, text mining and interactive geovisualization.
+    </p>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <div class="project featured">
+      <div class="featured-label">★ Featured Project</div>
+    
+      <h2>Mapping the Invisible</h2>
+      <p>
+        Spatial and temporal analysis of deaths and missing persons along international
+        migration routes using clustering, hotspot analysis and interactive geovisualization.
+      </p>
+      <div class="project-links">
+        <a href="projects/missing-migrants/index.html">Project Page</a>
+      </div>
+    </div>
+
+    <div class="project featured">
+      <div class="featured-label">★ Featured Project</div>
+    
+      <h2>Global Distribution of Reddit Country Mentions</h2>
+      <p>
+        Large-scale text analysis of over 400 million Reddit posts using multilingual
+        country name extraction and the Aho–Corasick algorithm, visualized in an interactive Folium map.
+      </p>
+      <div class="project-links">
+        <a href="./Global_Distribution_of_Reddit_Country_Mentions_2025.html">Interactive Map</a>
+        <a href="./Slides_Global_Distribution_of_Reddit_Country_Mentions_2025.pdf" target="_blank">
+          Slides (Analysis & Results)
+        </a>
+      </div>
+    </div>
+
+    <div class="project">
+      <h2>Historical Street Names of Vienna</h2>
+      <p>
+        Interactive Folium map combining OpenStreetMap geometries with Wikidata relations
+        to explore the historical context of street names in Vienna.
+      </p>
+      <div class="project-links">
+        <a href="./Historical_Street_Names_of_Vienna.html">
+          Interactive Map
+        </a>
+      </div>
+    </div>
+
+    <div class="project">
+      <h2>Bachelor Thesis</h2>
+      <p>
+        "Crime Hot Spot Mapping – Methodenvergleich und praktischer Versuch in ArcGIS Pro"<br>
+        (Crime Hot Spot Mapping – Method comparison and applied analysis in ArcGIS Pro)
+      </p>
+      <div class="project-links">
+        <a href="./Bachelorarbeit_LuisFink_12018892.pdf" target="_blank">
+          PDF Thesis
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-card">
+  
+      <div class="profile-header">
+          <img src="./IMG_2182.png" alt="Luis Fink" class="profile-img">
+      
+          <div class="profile-name">Luis Fink</div>
+          <div class="profile-role">
+            M.Sc. Spatial Data Science<br>
+            University of Vienna
+          </div>
+      
+          <p class="profile-about">
+            Master’s student focusing on GIS-based analysis, spatial data processing and
+            Python-driven geospatial workflows with real-world applications.
+          </p>
+        </div>
+      
+        <div class="divider"></div>
+      
+        <div class="sidebar-section-title">Quick Links</div>
+        <ul class="sidebar-links">
+          <li><a href="./Lebenslauf.pdf" target="_blank">CV</a></li>
+          <li><a href="https://www.linkedin.com/in/luis-fink-5268043a4" target="_blank">LinkedIn</a></li>
+          <li><a href="mailto:luis.fink@gmx.de">Email</a></li>
+        </ul>
+      
+        <div class="divider"></div>
+  
+      <div class="sidebar-section-title">Focus Areas</div>
+      <div class="pill-group">
+        <span class="pill">Python</span>
+        <span class="pill">GIS</span>
+        <span class="pill">GeoAI</span>
+        <span class="pill">SQL</span>
+        <span class="pill">Spatial Analysis</span>
+        <span class="pill">Interactive Maps</span>
+      </div>
+  
+    </div>
+  </aside>
+
+</div>
+
+<footer>
+  © 2026 Luis Fink
+</footer>
+
+</body>
+</html>
