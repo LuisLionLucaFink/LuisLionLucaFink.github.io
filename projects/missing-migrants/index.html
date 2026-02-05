@@ -375,11 +375,10 @@
       <div class="section-title">Temporal and Spatial-Temporal Patterns</div>
     
       <p>
-        In this step, we examine how migrant deaths and disappearances evolve over time.
-        The analysis focuses on both monthly and yearly temporal patterns across the six
-        selected migration corridors, providing insight into seasonal dynamics as well as
-        longer-term trends. In addition, these temporal patterns form the basis for subsequent
-        spatial-temporal analyses, where shifts in the geographic center of incidents are explored.
+        In this step, we examine how the total number of deaths and missing persons changes over time.
+        We first analyze temporal patterns on a monthly and yearly level to identify seasonality and longer-term trends.
+        Building on this, we incorporate geography by calculating weighted average incident locations for months and years,
+        which helps to assess whether the spatial center of high-fatality incidents shifts over time.
       </p>
     
       <div class="sub-title">Monthly Patterns</div>
@@ -428,6 +427,42 @@
       <!-- Yearly plot -->
       <div class="figure-block">
         <img src="./DaM_by_Year.jpg" alt="Total deaths and missing by year across migration routes">
+      </div>
+
+      <div class="sub-title">Maps: Monthly and Yearly Spatial Shifts</div>
+      <p>
+        To incorporate spatial aspects into the temporal analysis, we calculated weighted average incident
+        locations for both months and years. The incident coordinates are weighted by the number of deaths and
+        missing persons, so that high-severity events influence the spatial center more strongly than low-impact
+        incidents.
+      </p>
+    
+      <p>
+        <strong>Monthly spatial shifts.</strong> When looking at the monthly centroids, no clear or systematic
+        seasonal shifts can be observed. The centroids remain tightly concentrated within a relatively small
+        area in North Africa, primarily around northern Algeria and the surrounding region. This concentration
+        is plausible given that this area lies geographically between the eastern corridors (Afghanistan–Iran,
+        Eastern Route EHOA) and western corridors (US–Mexico border, Canary Islands) included in the analysis.
+        Minor east–west fluctuations exist across months, but they appear irregular rather than seasonally driven.
+      </p>
+    
+      <div class="media">
+        <iframe src="./Locations_by_Month.html" loading="lazy"></iframe>
+      </div>
+    
+      <p style="margin-top:16px;">
+        <strong>Yearly spatial shifts.</strong> Across years, the centroids show slightly broader movement,
+        while still remaining largely confined to the North African corridor. In earlier years (2014 to 2016),
+        the centroid positions appear somewhat further east, closer to Libya. In later years (2019 to 2023),
+        a modest westward shift toward Algeria and parts of the Western Sahara becomes visible. This pattern may
+        reflect changing route dynamics, including a reduced dominance of the Central Mediterranean and an
+        increasing relevance of western corridors such as the Canary Islands route. Notably, the centroid in 2025
+        shifts markedly eastward again. Since 2025 is not complete, this point should be interpreted cautiously
+        and may change as additional incidents are reported.
+      </p>
+    
+      <div class="media">
+        <iframe src="./Locations_by_Year.html" loading="lazy"></iframe>
       </div>
     </div>
 
