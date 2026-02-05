@@ -288,20 +288,71 @@
         width:100%;
       }
     }
+    /* HERO HEADER WITH BACKGROUND IMAGE */
+    .hero{
+      position: relative;
+      overflow: hidden;
+      background: #ffffff;
+      padding: 64px 20px 56px;
+      text-align: center;
+      border-bottom: 1px solid #e6e6e6;
+    }
+    
+    /* Hintergrundbild */
+    .hero-bg{
+      position: absolute;
+      inset: 0;
+      background-image: url("./header.jpg");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.12;
+      filter: grayscale(100%) contrast(1.1);
+      z-index: 0;
+    }
+    
+    /* Inhalt bleibt oben */
+    .hero-content{
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .hero h1{
+      margin: 0;
+      font-size: 36px;
+    }
+    
+    .hero p{
+      margin-top: 10px;
+      font-size: 16px;
+      color: #444;
+    }
+    
+    .hero-sub{
+      max-width: 700px;
+      margin: 18px auto 0;
+      color: #555;
+      line-height: 1.6;
+    }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Luis Fink</h1>
+<header class="hero">
+  <div class="hero-bg"></div>
 
-  <p><strong>Portfolio of Selected Academic Projects</strong></p>
+  <div class="hero-content">
+    <h1>Luis Fink</h1>
 
-  <p style="max-width:700px; margin:18px auto 0; color:#666;">
-    Projects combining large-scale data processing, GIS-based analysis,
-    API-based data extraction, text mining and interactive geovisualization.
-  </p>
+    <p><strong>Portfolio of Selected Academic Projects</strong></p>
+
+    <p class="hero-sub">
+      Projects combining large-scale data processing, GIS-based analysis,
+      API-based data extraction, text mining and interactive geovisualization.
+    </p>
+  </div>
 </header>
 
 <div class="layout">
