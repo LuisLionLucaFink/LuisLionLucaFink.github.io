@@ -165,6 +165,45 @@
       color: #666;
       text-align: center;
     }
+    html{
+      scroll-behavior: smooth;
+    }
+    
+    .toc{
+      position: fixed;
+      top: 120px;
+      right: 26px;
+      width: 220px;
+      background: #ffffff;
+      border: 1px solid #e6e6e6;
+      border-radius: 14px;
+      padding: 14px 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      font-size: 14px;
+    }
+    
+    .toc strong{
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14.5px;
+    }
+    
+    .toc a{
+      display: block;
+      margin: 6px 0;
+      color: #3366cc;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .toc a:hover{
+      text-decoration: underline;
+    }
+    main{
+      max-width: 980px;
+      margin: 42px auto;
+      padding: 0 260px 0 20px;
+    }
   </style>
 </head>
 
@@ -177,7 +216,7 @@
   <main>
 
     <!-- Overview -->
-    <div class="card">
+    <div class="card" id="overview">
       <div class="section-title">Overview</div>
       <p>
         This dashboard visualizes migrant deaths and disappearances across the globe. It highlights major migration
@@ -191,7 +230,7 @@
     </div>
 
     <!-- Motivation -->
-    <div class="card">
+    <div class="card" id="motivation">
       <div class="section-title">Motivation</div>
       <p>
         Every year, thousands of migrants risk their lives crossing international borders. Many do not survive.
@@ -207,7 +246,7 @@
     </div>
 
     <!-- Data Source -->
-    <div class="card">
+    <div class="card" id="data-source">
       <div class="section-title">Data Source</div>
       <p>
         The data is provided by the International Organization for Migration through the Missing Migrants Project.
@@ -223,7 +262,7 @@
     </div>
 
     <!-- Global Heatmap -->
-    <div class="card">
+    <div class="card" id="heatmap">
       <div class="section-title">Global Heatmap of Incidents</div>
       <p>
         To provide an initial spatial overview, I created a global heatmap that shows where migrant deaths and
@@ -248,7 +287,7 @@
     </div>
 
     <!-- Exploratory Visualizations -->
-    <div class="card">
+    <div class="card" id="exploratory">
       <div class="section-title">Exploratory Visualizations: Demographics, Origins, Causes and Routes</div>
       <p>
         To understand the underlying patterns in migrant deaths, we first explore descriptive statistics and
@@ -371,7 +410,7 @@
     </div>
 
     <!-- Temporal and Spatial-Temporal Patterns -->
-    <div class="card">
+    <div class="card" id="temporal">
       <div class="section-title">Temporal and Spatial-Temporal Patterns</div>
     
       <p>
@@ -466,7 +505,7 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" id="clustering">
       <div class="section-title">K-Means Clustering (Spatial Segmentation)</div>
     
       <p>
@@ -553,7 +592,7 @@
     </div>
 
     <!-- KDE Hotspot Analysis -->
-    <div class="card">
+    <div class="card" id="kde">
       <div class="section-title">KDE Hotspot Analysis: Incorporating Incidents and Deaths</div>
     
       <p>
@@ -602,6 +641,17 @@
     </div>
 
   </main>
+  <nav class="toc">
+    <strong>Contents</strong>
+    <a href="#overview">Overview</a>
+    <a href="#motivation">Motivation</a>
+    <a href="#data-source">Data Source</a>
+    <a href="#heatmap">Global Heatmap</a>
+    <a href="#exploratory">Exploratory Visualizations</a>
+    <a href="#temporal">Temporal Patterns</a>
+    <a href="#clustering">Clustering (K-Means & DBSCAN)</a>
+    <a href="#kde">KDE Hotspot Analysis</a>
+  </nav>
 
   <footer>© 2026 Luis Fink</footer>
 </body>
