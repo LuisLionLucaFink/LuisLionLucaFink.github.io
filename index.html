@@ -554,6 +554,22 @@
     .hero-sub{
       text-shadow: 0 1px 3px rgba(255,255,255,0.6);
     }
+    /* FEATURED PROJECT CARD */
+    .project.featured{
+      box-shadow: 0 10px 26px rgba(0,0,0,0.14);
+      border-left: 4px solid #c7d2fe; /* sehr dezentes Blau */
+      padding-left: 22px; /* Ausgleich für Rand */
+    }
+    
+    /* Featured label */
+    .featured-label{
+      display:inline-block;
+      margin-bottom:6px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:0.04em;
+      color:#5b6fd6;
+    }
 
   </style>
 </head>
@@ -580,29 +596,29 @@
   <!-- MAIN CONTENT -->
   <main>
 
-    <div class="project">
+    <div class="project featured">
+      <div class="featured-label">★ Featured Project</div>
+    
       <h2>Mapping the Invisible</h2>
       <p>
         Spatial and temporal analysis of deaths and missing persons along international
         migration routes using clustering, hotspot analysis and interactive geovisualization.
       </p>
-    <div class="project-links">
-      <a href="projects/missing-migrants/index.html" class="primary">
-        Project Page
-      </a>
-    </div>
+      <div class="project-links">
+        <a href="projects/missing-migrants/index.html">Project Page</a>
+      </div>
     </div>
 
-    <div class="project">
+    <div class="project featured">
+      <div class="featured-label">★ Featured Project</div>
+    
       <h2>Global Distribution of Reddit Country Mentions</h2>
       <p>
         Large-scale text analysis of over 400 million Reddit posts using multilingual
         country name extraction and the Aho–Corasick algorithm, visualized in an interactive Folium map.
       </p>
       <div class="project-links">
-        <a href="./Global_Distribution_of_Reddit_Country_Mentions_2025.html">
-          Interactive Map
-        </a>
+        <a href="./Global_Distribution_of_Reddit_Country_Mentions_2025.html">Interactive Map</a>
         <a href="./Slides_Global_Distribution_of_Reddit_Country_Mentions_2025.pdf" target="_blank">
           Slides (Analysis & Results)
         </a>
