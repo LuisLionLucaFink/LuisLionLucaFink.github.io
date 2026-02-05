@@ -451,6 +451,26 @@
     .sidebar-links a:hover{
       text-decoration:underline;
     }
+    .sidebar-links{
+      list-style: disc;
+      padding-left: 18px;   /* Abstand für Punkte */
+      margin: 0;
+    }
+    
+    .sidebar-links li{
+      margin-bottom: 8px;
+    }
+    
+    .sidebar-links a{
+      font-size: 14px;
+      font-weight: 600;
+      color: #3366cc;
+      text-decoration: none;
+    }
+    
+    .sidebar-links a:hover{
+      text-decoration: underline;
+    }
   </style>
 </head>
 
@@ -554,11 +574,11 @@
   
       <div class="sidebar-section-title">Quick Links</div>
       
-      <div class="sidebar-links">
-        <a href="./Lebenslauf.pdf" target="_blank">CV</a>
-        <a href="https://www.linkedin.com/in/luis-fink-5268043a4" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:luis.fink@gmx.de">Email</a>
-      </div>
+      <ul class="sidebar-links">
+        <li><a href="./Lebenslauf.pdf" target="_blank">CV</a></li>
+        <li><a href="https://www.linkedin.com/in/luis-fink-5268043a4" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:luis.fink@gmx.de">Email</a></li>
+      </ul>
   
       <div class="divider"></div>
   
