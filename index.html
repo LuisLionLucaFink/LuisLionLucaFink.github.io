@@ -431,26 +431,26 @@
       line-height:1.4;
     }
     
-    .sidebar-links a::before{
-      content:"";
-      position:absolute;
-      left:0;
-      top:50%;
-      transform:translateY(-50%);
-      width:5px;
-      height:5px;
-      border-radius:50%;
-      background:#c7d2fe;
+    .sidebar-links a:hover{
+      text-decoration:underline;
+    }
+    .sidebar-links{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    
+    .sidebar-links a{
+      font-size:14px;
+      font-weight:600;
+      color:#3366cc;
+      text-decoration:none;
+      line-height:1.4;
     }
     
     .sidebar-links a:hover{
       text-decoration:underline;
     }
-    
-    .sidebar-links a:hover::before{
-      background:#3366cc;
-    }
-
   </style>
 </head>
 
