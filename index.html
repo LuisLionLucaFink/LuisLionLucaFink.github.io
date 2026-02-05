@@ -493,6 +493,34 @@
     .sidebar-links a:hover{
       text-decoration: underline;
     }
+    /* Profilbereich bewusst zentriert */
+    .profile-header{
+      text-align: center;
+    }
+    
+    /* Sidebar-Links bewusst linksbündig */
+    .sidebar-links{
+      list-style: disc;
+      padding-left: 14px;
+      margin: 0;
+      text-align: left;
+    }
+    
+    .sidebar-links li{
+      margin-bottom: 4px;
+      color: #3366cc;
+    }
+    
+    .sidebar-links a{
+      color: #3366cc;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    .sidebar-links a:hover{
+      text-decoration: underline;
+    }
   </style>
 </head>
 
@@ -579,30 +607,31 @@
   <aside class="sidebar">
     <div class="sidebar-card">
   
-      <img src="./IMG_2182.png" alt="Luis Fink" class="profile-img">
-  
-      <div class="profile-name">Luis Fink</div>
-      <div class="profile-role">
-        M.Sc. Spatial Data Science<br>
-        University of Vienna
-      </div>
-  
-      <p class="profile-about">
-        Master’s student focusing on GIS-based analysis, spatial data processing and
-        Python-driven geospatial workflows with real-world applications.
-      </p>
-  
-      <div class="divider"></div>
-  
-      <div class="sidebar-section-title">Quick Links</div>
+      <div class="profile-header">
+          <img src="./IMG_2182.png" alt="Luis Fink" class="profile-img">
       
-      <ul class="sidebar-links">
-        <li><a href="./Lebenslauf.pdf" target="_blank">CV</a></li>
-        <li><a href="https://www.linkedin.com/in/luis-fink-5268043a4" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="mailto:luis.fink@gmx.de">Email</a></li>
-      </ul>
-  
-      <div class="divider"></div>
+          <div class="profile-name">Luis Fink</div>
+          <div class="profile-role">
+            M.Sc. Spatial Data Science<br>
+            University of Vienna
+          </div>
+      
+          <p class="profile-about">
+            Master’s student focusing on GIS-based analysis, spatial data processing and
+            Python-driven geospatial workflows with real-world applications.
+          </p>
+        </div>
+      
+        <div class="divider"></div>
+      
+        <div class="sidebar-section-title">Quick Links</div>
+        <ul class="sidebar-links">
+          <li><a href="./Lebenslauf.pdf" target="_blank">CV</a></li>
+          <li><a href="https://www.linkedin.com/in/luis-fink-5268043a4" target="_blank">LinkedIn</a></li>
+          <li><a href="mailto:luis.fink@gmx.de">Email</a></li>
+        </ul>
+      
+        <div class="divider"></div>
   
       <div class="sidebar-section-title">Focus Areas</div>
       <div class="pill-group">
