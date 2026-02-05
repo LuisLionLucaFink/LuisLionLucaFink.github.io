@@ -471,8 +471,8 @@
     
       <p>
         To investigate spatial structure in the six selected migration corridors, I applied K-Means clustering to all
-        cases. Because the dataset spans globally distributed routes, the goal is to test whether an unsupervised
-        method can separate cases into broad geographic zones that correspond to major migration regions.
+        incidents. Because the dataset spans globally distributed routes, the goal is to test whether an unsupervised
+        method can separate incidents into broad geographic zones that correspond to major migration regions.
       </p>
     
       <div class="sub-title">Cluster Selection using the Elbow Method</div>
@@ -539,6 +539,10 @@
         In addition, DBSCAN labels many scattered points as noise, representing spatial outliers across various regions.
       </p>
     
+      <div class="media">
+        <iframe src="./DBSCAN.html" loading="lazy"></iframe>
+      </div>
+
       <div class="sub-title">Advantages of DBSCAN in this Context</div>
       <p>
         DBSCAN is well suited here because it preserves the distinction between dense migration corridors and isolated
@@ -546,10 +550,55 @@
         assignment is not meaningful. The resulting clusters align closely with the known geography of the dominant
         corridors while keeping globally scattered cases separate as noise.
       </p>
+    </div>
+
+    <!-- KDE Hotspot Analysis -->
+    <div class="card">
+      <div class="section-title">KDE Hotspot Analysis: Incorporating Incidents and Deaths</div>
     
+      <p>
+        As a next step, <strong>Kernel Density Estimation (KDE)</strong> was applied, where individual
+        incidents are weighted by their number of <em>deaths and missing persons</em>. 
+        In contrast to <strong>K-Means</strong> and <strong>DBSCAN</strong>, which assign incidents to
+        discrete spatial clusters, KDE represents spatial
+        patterns as a continuous surface and shows not just where incidents occur, but where the
+        <em>most severe ones</em> are concentrated. Therefore, incidents with higher fatality counts have a stronger influence on the resulting
+        density surface than single-fatality events. By providing a smooth and continuous representation of spatial risk, the KDE analysis complements
+        the discrete clustering approaches.
+      </p>
+    
+      <!-- KDE Map -->
       <div class="media">
-        <iframe src="./DBSCAN.html" loading="lazy"></iframe>
+        <iframe src="./KDE.html" loading="lazy"></iframe>
       </div>
+    
+      <p style="margin-top:16px;">
+        The resulting density surface reveals a very pronounced global hotspot centered over
+        <strong>North Africa</strong>. The highest intensity values are concentrated around
+        Libya, Tunisia, and the central Saharan corridor, indicating that this region dominates
+        the global distribution of severe migration-related fatalities.
+      </p>
+    
+      <p>
+        Despite the worldwide extent of the dataset, nearly all high-weighted density accumulates
+        in this zone, reflecting both a high number of incidents and exceptionally high fatality
+        counts per incident. This strong spatial concentration closely confirms the patterns
+        identified earlier through route-based comparisons and temporal analyses.
+      </p>
+    
+      <p>
+        Other regions, including the US–Mexico border, Western Africa along the Canary Islands route,
+        and eastern migration corridors, appear far less prominent in the weighted density surface.
+        In these areas, either incidents are less frequent or the average number of deaths per incident
+        is substantially lower, resulting in a comparatively minor contribution to the global KDE pattern.
+      </p>
+    
+      <p>
+        By integrating both <strong>where incidents happen</strong> and <strong>how deadly they are</strong>,
+        this step offers a crucial additional perspective on the geography of migrant fatalities and
+        further reinforces the central role of the North African corridor as the most critical
+        global hotspot.
+      </p>
     </div>
 
   </main>
