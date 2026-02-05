@@ -363,44 +363,35 @@
     .quick-links{
       display:flex;
       flex-direction:column;
-      gap:8px;
+      gap:6px;
     }
     
     .quick-links a{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-    
+      display:inline-block;
       width:fit-content;
-      padding:7px 14px;
     
-      border-radius:999px;
-      background:#f1f5fb;
+      padding:5px 12px;
+      border-radius:8px;
+    
+      background:#f4f6fa;
       color:#3366cc;
     
-      font-size:13.5px;
+      font-size:13px;
       font-weight:600;
       text-decoration:none;
     
-      transition: background 0.15s ease, transform 0.15s ease;
+      transition: background 0.15s ease;
     }
     
     .quick-links a:hover{
-      background:#e6edfb;
-      transform: translateX(2px);
+      background:#e8edf7;
     }
     
-    /* Primary links (CV & LinkedIn) */
+    /* leicht hervorgehoben, aber nicht dominant */
     .quick-links a.primary{
-      background:#e0ebff;
+      background:#e9efff;
       color:#2f5fd0;
       font-weight:700;
-    }
-    
-    /* Icon */
-    .quick-links .icon{
-      font-size:14px;
-      opacity:0.85;
     }
   </style>
 </head>
@@ -505,22 +496,10 @@
   
       <div class="sidebar-section-title">Quick Links</div>
       <div class="quick-links">
-        <a href="./Lebenslauf.pdf" target="_blank" class="primary">
-          <span class="icon">📄</span> CV
-        </a>
-      
-        <a href="https://www.linkedin.com/in/luis-fink-5268043a4"
-           target="_blank" rel="noopener" class="primary">
-          <span class="icon">🔗</span> LinkedIn
-        </a>
-      
-        <a href="./Arbeitszeugnis_LuisFink_MVV.pdf" target="_blank">
-          <span class="icon">🧾</span> Work Reference
-        </a>
-      
-        <a href="mailto:luis.fink@gmx.de">
-          <span class="icon">✉️</span> Email
-        </a>
+        <a href="./Lebenslauf.pdf" target="_blank" class="primary">CV</a>
+        <a href="https://www.linkedin.com/in/luis-fink-5268043a4" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="./Arbeitszeugnis_LuisFink_MVV.pdf" target="_blank">Work Reference</a>
+        <a href="mailto:luis.fink@gmx.de">Email</a>
       </div>
   
       <div class="divider"></div>
