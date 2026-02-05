@@ -414,6 +414,43 @@
       background:#c7d2fe;
       flex-shrink:0;
     }
+    /* Sidebar quick links – clean list style */
+    .sidebar-links{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    
+    .sidebar-links a{
+      position:relative;
+      padding-left:14px;
+      font-size:14px;
+      font-weight:600;
+      color:#3366cc;
+      text-decoration:none;
+      line-height:1.4;
+    }
+    
+    .sidebar-links a::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:50%;
+      transform:translateY(-50%);
+      width:5px;
+      height:5px;
+      border-radius:50%;
+      background:#c7d2fe;
+    }
+    
+    .sidebar-links a:hover{
+      text-decoration:underline;
+    }
+    
+    .sidebar-links a:hover::before{
+      background:#3366cc;
+    }
+
   </style>
 </head>
 
@@ -516,10 +553,11 @@
       <div class="divider"></div>
   
       <div class="sidebar-section-title">Quick Links</div>
-      <div class="quick-links">
-        <a href="./Lebenslauf.pdf" target="_blank"><span class="dot"></span>CV</a>
-        <a href="https://www.linkedin.com/in/luis-fink-5268043a4" target="_blank" rel="noopener"><span class="dot"></span>LinkedIn</a>
-        <a href="mailto:luis.fink@gmx.de"><span class="dot"></span>Email</a>
+      
+      <div class="sidebar-links">
+        <a href="./Lebenslauf.pdf" target="_blank">CV</a>
+        <a href="https://www.linkedin.com/in/luis-fink-5268043a4" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:luis.fink@gmx.de">Email</a>
       </div>
   
       <div class="divider"></div>
