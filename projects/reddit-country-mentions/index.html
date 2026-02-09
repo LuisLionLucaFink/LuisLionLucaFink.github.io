@@ -240,176 +240,542 @@
 
     <!-- Motivation -->
     <div class="card" id="motivation">
-      <div class="section-title">Motivation</div>
+      <div class="section-title">Introduction and Motivation</div>
+    
       <p>
-        Working with global datasets quickly shows they are rarely neutral. Some regions appear constantly,
-        while others barely show up. This usually reflects how data is produced, not what is happening in the world.
+        Understanding biases in global data is a central challenge in spatial data science. Data collected
+        at a worldwide scale rarely represents all regions equally, but instead reflects structural
+        differences in population, infrastructure, language, and access to digital technologies. As a
+        result, apparent global patterns often reveal more about how data is generated than about the
+        underlying phenomena themselves. Identifying and critically assessing such biases is therefore
+        a key objective of this project.
       </p>
+    
       <p>
-        Reddit is a useful case study here. It looks global, but participation is uneven across regions and languages.
-        Instead of treating Reddit activity as global attention, this project uses it to make these imbalances visible.
+        Social media data offers a particularly illustrative example of these global inequalities. While
+        platforms are often perceived as worldwide communication spaces, their usage is highly uneven
+        across regions and social groups. In this project, Reddit is used as a case study to examine how
+        these biases manifest spatially. As a discussion based platform with a large international user
+        base and openly accessible data, Reddit allows for large scale analysis of global discourse, while
+        at the same time exhibiting strong regional, linguistic, and socioeconomic imbalances.
       </p>
+    
       <p>
-        To do that, country mentions are analyzed not only as raw counts, but also in relation to population size,
-        internet usage, and development level. This helps separate absolute visibility from relative attention.
+        Geographic information on Reddit is not explicitly provided through geotags, but must be inferred
+        from unstructured text such as post titles, post bodies, and subreddit names. Although previous
+        research has demonstrated that locations can be extracted from Reddit text, the resulting spatial
+        patterns are shaped by multiple sources of bias, including language dominance, uneven internet
+        access, and platform specific user demographics
+        (<a href="https://doi.org/10.48550/arXiv.1810.03067" target="_blank" rel="noopener">Harrigian, 2018</a>;
+         <a href="https://ceur-ws.org/Vol-3567/paper2.pdf" target="_blank" rel="noopener">Stillman &amp; Kruspe, 2024</a>).
+      </p>
+    
+      <p>
+        The main motivation of this project is to use Reddit data to explore how global biases become
+        visible when geographic references are extracted from social media text. Specifically, the study
+        analyzes the global spatial distribution of country mentions in Reddit posts and examines how
+        these patterns vary across regions.
+      </p>
+    
+      <p>
+        Rather than treating country mention patterns as objective representations of global attention,
+        the analysis explicitly investigates how these patterns relate to population size, internet
+        usage, and levels of socioeconomic development. By comparing absolute country mention counts
+        with normalized measures, the project highlights systematic over and under representation of
+        different regions.
+      </p>
+    
+      <p>
+        Overall, this project aims to visualize global patterns of geographic attention on Reddit while
+        critically reflecting on the biases and limitations inherent in social media based spatial
+        analysis.
+      </p>
+    </div>
+
+    <!-- Related Work & Research Gaps -->
+    <div class="card" id="related-work">
+      <div class="section-title">Related Work and Research Gaps</div>
+    
+      <div class="sub-title">Related Work</div>
+    
+      <p>
+        Geographic information extraction from social media has been an active research topic for more
+        than a decade. Most existing studies focus on platforms such as Twitter, now X, while Reddit has
+        received comparatively less attention. Early work showed that geographic signals can be derived
+        from textual content even when explicit geotags are missing. For example,
+        <a href="https://dl.acm.org/doi/10.1145/1871437.1871535" target="_blank" rel="noopener">
+          Cheng, Caverlee, and Lee (2010)
+        </a>
+        demonstrated that users’ locations can be inferred from tweet content alone. At the same time,
+        their results already pointed to strong spatial concentration and uneven representation across
+        regions.
+      </p>
+    
+      <p>
+        For Reddit in particular,
+        <a href="https://doi.org/10.48550/arXiv.1810.03067" target="_blank" rel="noopener">
+          Harrigian (2018)
+        </a>
+        conducted one of the first large scale studies on text based geolocation without relying on
+        geotags. The study showed that Reddit posts and user activity contain sufficient geographic cues
+        to infer locations at different spatial scales. However, it also revealed substantial biases,
+        including a clear dominance of English speaking countries and urban areas, as well as uncertainty
+        caused by ambiguous place names and informal language.
+      </p>
+    
+      <p>
+        More recent work by
+        <a href="https://ceur-ws.org/Vol-3567/paper2.pdf" target="_blank" rel="noopener">
+          Stillman and Kruspe (2024)
+        </a>
+        further explored geolocation extraction from Reddit using machine learning based approaches and
+        location focused subreddits. Their findings confirmed that Reddit text contains rich geographic
+        information, but also highlighted persistent challenges related to data sparsity, noise, and
+        limited coverage outside highly active regions.
+      </p>
+    
+      <p>
+        Beyond individual platforms, several studies have explicitly addressed bias in social media based
+        spatial analysis more broadly.
+        <a href="https://doi.org/10.3390/ijgi10060373" target="_blank" rel="noopener">
+          Karami et al. (2021)
+        </a>
+        showed that only a very small and non representative fraction of Twitter content is geotagged,
+        which can lead to systematic spatial distortions when geotagged data is treated as ground truth.
+        <a href="https://doi.org/10.1109/MGRS.2022.3173461" target="_blank" rel="noopener">
+          Zhu et al. (2022)
+        </a>
+        proposed a broader framework for geoinformation harvesting from social media, emphasizing that
+        platform bias, spatial bias, content bias, and methodological bias are inherent properties of
+        social media data rather than issues that can be fully removed.
+      </p>
+    
+      <p>
+        Taken together, the existing literature shows that geographic information can be extracted from
+        social media text and that platforms such as Reddit offer valuable opportunities for spatial
+        analysis. At the same time, prior studies consistently point to limitations related to data
+        sources, scale, language, and representativeness. These recurring issues highlight several
+        unresolved gaps in current research, particularly with regard to global coverage and bias aware
+        interpretation of spatial patterns.
       </p>
     </div>
 
     <!-- Research Questions -->
     <div class="card" id="research-questions">
       <div class="section-title">Research Questions</div>
-
+      <p>
+        Building on the identified research gaps, this project addresses the following research questions:
+      </p>
       <div class="note big">
         <strong>RQ1.</strong> How are country mentions in Reddit posts spatially distributed across the globe?<br><br>
         <strong>RQ2.</strong> Which spatial biases become visible when global Reddit country mentions are mapped?<br><br>
         <strong>RQ3.</strong> Which countries receive disproportionately high or low attention relative to population size and internet usage?<br><br>
         <strong>RQ4.</strong> How does relative Reddit activity relate to national development levels (HDI)?
       </div>
+      <p>
+        Together, these questions aim to explore not only the global distribution of Reddit country mentions,
+        but also the structural biases underlying these patterns and their relationship to demographic and
+        socioeconomic factors.
+      </p>
     </div>
 
     <!-- Data -->
     <div class="card" id="data">
       <div class="section-title">Data</div>
+    
+      <div class="sub-title">5.1 Reddit Data</div>
       <p>
-        The primary dataset consists of monthly Reddit submission dumps from Academic Torrents, covering January to October 2025.
-        The full archive includes more than 400 million submissions (about 166.5 GB compressed). The analysis focuses on post titles,
-        post bodies, and subreddit names. Comments were excluded to keep processing feasible at this scale.
+        The primary dataset used in this project consists of Reddit submission data obtained from
+        <a href="https://academictorrents.com/browse.php?search=reddit" target="_blank" rel="noopener">
+          Academic Torrents
+        </a>,
+        a platform that provides large scale Reddit data dumps for research purposes. The data is
+        publicly available and allows unrestricted access to historical Reddit submissions.
       </p>
-
+    
       <p>
-        To contextualize country visibility, the Reddit results were combined with country level indicators:
-        population estimates, internet usage shares, and the Human Development Index.
+        In total, the dataset includes more than 400 million Reddit posts, with a compressed file size of
+        approximately 166.5&nbsp;GB. The data covers a ten month period from January to October 2025 and
+        is provided as monthly files in compressed JSON Lines format. Each monthly file contains all
+        Reddit submissions published within the respective month.
       </p>
-
-      <p class="note">
-        Data source: <a href="https://academictorrents.com/browse.php?search=reddit" target="_blank" rel="noopener">Academic Torrents Reddit dumps</a><br>
-        Population: <a href="https://worldpopulationreview.com/countries" target="_blank" rel="noopener">World Population Review</a><br>
-        Internet usage: <a href="https://ourworldindata.org/grapher/share-of-individuals-using-the-internet?tab=table" target="_blank" rel="noopener">Our World in Data</a><br>
-        HDI: <a href="https://hdr.undp.org/data-center/documentation-and-downloads" target="_blank" rel="noopener">UN Human Development Reports</a>
+    
+      <p>
+        For this project, only the textual components of Reddit submissions were considered. Specifically,
+        post titles, post bodies, and subreddit names were extracted for analysis. User comments were
+        deliberately excluded in order to reduce the overall data volume and to focus on the main content
+        of submissions, which typically contains the most relevant geographic references.
+      </p>
+    
+      <div class="sub-title">5.2 Additional Data Sources</div>
+      <p>
+        To support the analysis of spatial bias and to enable meaningful comparisons between countries,
+        the Reddit based country mention data was combined with several external country level datasets.
+      </p>
+    
+      <p>
+        Population data was obtained from
+        <a href="https://worldpopulationreview.com/countries" target="_blank" rel="noopener">
+          World Population Review
+        </a>
+        and provides estimates of total population size per country.
+      </p>
+    
+      <p>
+        Internet usage data was sourced from
+        <a href="https://ourworldindata.org/grapher/share-of-individuals-using-the-internet?tab=table" target="_blank" rel="noopener">
+          Our World in Data
+        </a>
+        and represents the share of individuals using the internet in each country.
+      </p>
+    
+      <p>
+        In addition, country level Human Development Index values were obtained from the
+        <a href="https://hdr.undp.org/data-center/documentation-and-downloads" target="_blank" rel="noopener">
+          United Nations Human Development Reports
+        </a>.
+      </p>
+    
+      <div class="sub-title">5.3 Scope of the Dataset</div>
+      <p>
+        The dataset represents patterns of geographic attention in Reddit discourse rather than the
+        physical locations of users or events. Country mentions reflect which countries are discussed on
+        Reddit and how frequently they appear in submissions, not where users are located or where events
+        necessarily take place.
+      </p>
+    
+      <p>
+        By combining large scale Reddit data with external country level indicators, the dataset provides
+        a suitable basis for examining global spatial biases in social media data.
       </p>
     </div>
 
     <!-- Methods -->
     <div class="card" id="methods">
       <div class="section-title">Methods</div>
+    
+      <div class="sub-title">6.1 Data Preparation and Workflow</div>
       <p>
-        Country mentions were extracted with a multilingual country dictionary (30 major world languages) and a scalable string matching approach.
-        Special handling was added for short abbreviations like US and UK using context rules so they are only accepted in clear geographic phrasing.
+        As a first step, the monthly Reddit submission files were downloaded via a BitTorrent client and
+        processed in a JupyterLab environment. Each monthly file was handled separately in order to manage
+        memory usage and to ensure a consistent processing workflow across the entire study period.
       </p>
-
       <p>
-        To compare countries more fairly, a Reddit Activity Index (RAI) was computed as country mentions relative to the estimated number of
-        internet users (population multiplied by internet usage rate), using a log transform for comparability.
+        For each Reddit submission, the textual content relevant for geographic analysis was extracted. This
+        includes post titles, post bodies, and subreddit names. These text components form the basis for
+        identifying country references in Reddit discourse.
       </p>
-
+    
+      <div class="sub-title">6.2 Multilingual Country Dictionary</div>
+      <p>
+        To reduce the strong bias toward English language content commonly observed in social media
+        analyses, a multilingual country dictionary was created. The dictionary contains official country
+        names in thirty major world languages and was constructed using information retrieved from
+        Wikidata. Together, these languages cover more than ninety percent of the global speaking population.
+      </p>
+      <p>
+        In addition to official country names, a separate list of widely used short country synonyms and
+        abbreviations was compiled. Examples include “US” for the United States and “UK” for the United
+        Kingdom. This step improves recall by capturing informal references frequently used in Reddit posts.
+      </p>
+    
+      <div class="sub-title">6.3 Country Matching and Scalability</div>
+      <p>
+        The central methodological challenge of this project was the extraction of country mentions from
+        several hundred million Reddit posts. Multiple text matching approaches were tested during
+        development. However, most conventional methods proved to be too slow and computationally
+        inefficient for datasets of this size, with estimated runtimes of several days.
+      </p>
+      <p>
+        To address this limitation, the Aho–Corasick string matching algorithm was used. This algorithm
+        allows thousands of country names to be matched simultaneously in a single pass through the text. As
+        a result, country extraction could be performed efficiently and at scale, making the analysis of very
+        large Reddit datasets feasible.
+      </p>
+    
+      <div class="sub-title">6.4 Context-Based Filtering</div>
+      <p>
+        Short country synonyms such as “US” or “UK” are highly ambiguous and can easily lead to false
+        positive matches. To reduce this problem, additional context-based rules were applied alongside the
+        string matching process.
+      </p>
+      <p>
+        Country matches were only accepted when they appeared in a clear geographic context, for example
+        when preceded or followed by terms such as “in”, “from”, or “to”. This filtering step helps ensure that
+        short abbreviations are interpreted as country references rather than unrelated words or expressions.
+      </p>
+    
+      <div class="sub-title">6.5 Reddit Activity Index</div>
+      <p>
+        To move beyond raw country mention counts, a custom Reddit Activity Index (RAI) was developed.
+        The RAI measures how frequently a country is mentioned on Reddit relative to the number of active
+        internet users in that country.
+      </p>
+      <p>
+        The index is calculated by dividing the total number of Reddit country mentions by the estimated
+        number of internet users, derived from population size and internet usage rates. A logarithmic
+        transformation is applied to improve comparability between countries of very different sizes and
+        levels of online participation.
+      </p>
+      <p>
+        This index enables a more balanced comparison of Reddit attention across countries and helps
+        highlight relative over and under representation.
+      </p>
+    
       <div class="figure-block">
         <img src="./RAI_Formula.jpg" alt="Reddit Activity Index formula">
         <div class="figure-caption">Reddit Activity Index (RAI) formula.</div>
       </div>
+    
+      <div class="sub-title">6.6 Map Creation and Visualization</div>
+      <p>
+        In the final step, all matched Reddit posts were aggregated at the country level. The aggregated
+        country data was then linked with population size, internet usage rates, Human Development Index
+        values, and the Reddit Activity Index.
+      </p>
+      <p>
+        The final visualization was created using the Folium library. The map includes multiple layers,
+        legends, interactive popups, and an information panel to support interpretation. This interactive design
+        allows users to explore global patterns of Reddit country mentions and associated indicators in a
+        transparent and intuitive way.
+      </p>
     </div>
 
     <!-- Interactive Map -->
     <div class="card" id="interactive-map">
       <div class="section-title">Interactive Map</div>
+    
       <p>
-        The map combines three dimensions: country fill color shows HDI, bubble size shows total mention volume,
-        and bubble color shows the Reddit Activity Index (relative attention). This makes it easier to see where
-        absolute visibility and relative attention diverge.
+        The interactive map represents the global spatial distribution of country mentions in Reddit posts
+        and combines multiple dimensions of Reddit activity in a single visualization. Country polygons are
+        colored according to their Human Development Index (HDI), bubble size represents the total number
+        of Reddit posts mentioning a country, and bubble color encodes the Reddit Activity Index (RAI),
+        indicating relative attention adjusted for the size of the online population.
       </p>
-
+    
+      <p>
+        Several spatial patterns are immediately visible. Reddit attention is strongly concentrated in
+        North America and Western Europe, with particularly large bubbles for the United States, Canada,
+        and the United Kingdom. In contrast, large parts of Africa, Central Asia, and Southeast Asia show
+        comparatively small bubbles, indicating lower absolute visibility in Reddit discussions.
+      </p>
+    
+      <p>
+        The map also highlights the difference between absolute and relative attention. While large
+        countries dominate total mention counts, several smaller countries become more prominent when
+        attention is normalized using the Reddit Activity Index. This is especially visible in Northern
+        and Western Europe, where relatively small populations coincide with high relative Reddit activity.
+      </p>
+    
+      <p>
+        In addition, the visualization reveals a clear West–East and North–South gradient. Countries with
+        higher HDI levels tend to display darker bubble colors, indicating higher relative Reddit activity,
+        whereas countries with lower development levels generally show lower relative attention. At the
+        same time, notable exceptions are visible, underlining that development level alone does not fully
+        explain Reddit participation.
+      </p>
+    
+      <p>
+        Overall, the map provides a spatial overview that makes global inequalities and biases in Reddit
+        attention directly visible and serves as a visual foundation for the quantitative analyses
+        presented in the following sections.
+      </p>
+    
       <p class="note">
-        <a href="https://luislionlucafink.github.io/Global_Distribution_of_Reddit_Country_Mentions_2025.html" target="_blank" rel="noopener">
+        <a href="https://luislionlucafink.github.io/Global_Distribution_of_Reddit_Country_Mentions_2025.html"
+           target="_blank" rel="noopener">
           The interactive version of the map is available online!
         </a>
       </p>
-
-      <!-- Embedded local copy (place the Folium html file in the same folder) -->
+    
       <div class="media">
-        <iframe src="./Global_Distribution_of_Reddit_Country_Mentions_2025.html" loading="lazy" title="Global Distribution of Reddit Country Mentions (2025)"></iframe>
+        <iframe
+          src="./Global_Distribution_of_Reddit_Country_Mentions_2025.html"
+          loading="lazy"
+          title="Global Distribution of Reddit Country Mentions (2025)">
+        </iframe>
       </div>
     </div>
 
     <!-- Results -->
     <div class="card" id="results">
       <div class="section-title">Results</div>
-
+    
+      <div class="sub-title">7.1 Overall Distribution and Concentration of Country Mentions</div>
       <p>
-        Across the dataset, 186 countries were mentioned. Out of more than 408 million submissions, about 9.3 million posts
-        (around 2.3 percent) contained at least one country reference, spanning roughly 1.1 million unique subreddits.
-        Visibility is highly skewed: the United States leads with over 3.3 million mentions, followed by Canada
-        (about 800,000) and the United Kingdom (about 720,000). Many countries appear fewer than 1,000 times.
-        This concentration is also visible in cumulative shares: the top five countries account for over 60 percent of mentions,
-        the top ten for over 70 percent, and the top twenty for over 85 percent.
+        Across the analyzed Reddit submissions, a total of 186 different countries were mentioned.
+        From more than 408 million Reddit posts, approximately 9.3 million posts, or about 2.3 percent
+        of all submissions, contained at least one country reference. These matched posts originate from
+        roughly 1.1 million unique subreddits, indicating that geographic references appear across a wide
+        range of topics and communities.
       </p>
-
-      <div class="figure-block">
-        <img src="./top10_total_country_mentions.jpg" alt="Top 10 countries by total Reddit mentions">
-        <div class="figure-caption">Top 10 countries by total Reddit mentions.</div>
-      </div>
-
-      <div class="figure-block">
-        <img src="./bottom_10_total_country_mentions.jpg" alt="Bottom 10 countries by total Reddit mentions">
-        <div class="figure-caption">Bottom 10 countries by total Reddit mentions (non zero).</div>
-      </div>
-
+    
       <p>
-        When switching from raw counts to the Reddit Activity Index, the ranking changes sharply. Small and highly concentrated
-        countries (for example Greenland, Monaco, Iceland, Malta, Liechtenstein) rise to the top, while many large or lower HDI
-        countries show lower relative attention.
+        The distribution of country mentions is highly uneven. The United States clearly dominates the
+        dataset with more than 3.3 million mentions, followed by Canada with approximately 800,000
+        mentions and the United Kingdom with around 720,000. In contrast, the median number of mentions
+        per country is only about 7,000, and many countries receive fewer than 1,000 mentions in total.
       </p>
-
+    
       <div class="figure-block">
-        <img src="./top10_reddit_activity_index.jpg" alt="Top 10 countries by Reddit Activity Index">
-        <div class="figure-caption">Top 10 countries by Reddit Activity Index (log scale).</div>
+        <img src="./top10_total_country_mentions.jpg" alt="Top countries by total Reddit mentions">
+        <div class="figure-caption">
+          Total Reddit country mentions for the most frequently mentioned countries.
+        </div>
       </div>
-
+    
       <div class="figure-block">
-        <img src="./bottom_10_reddit_activity_index.jpg" alt="Bottom 10 countries by Reddit Activity Index">
-        <div class="figure-caption">Bottom 10 countries by Reddit Activity Index (log scale).</div>
+        <img src="./bottom_10_total_country_mentions.jpg" alt="Bottom countries by total Reddit mentions">
+        <div class="figure-caption">
+          Countries with the lowest non zero number of total Reddit mentions.
+        </div>
       </div>
-
+    
       <p>
-        Relative Reddit activity is moderately associated with development level. The correlation between log RAI and HDI is
-        Pearson r = 0.544 and Spearman ρ = 0.594, suggesting that higher HDI countries tend to receive higher relative attention.
-        A notable outlier is the United Arab Emirates: very high HDI, but one of the lowest RAI values, pointing to additional
-        factors such as language, culture, or platform preferences.
+        This imbalance becomes even clearer when considering cumulative shares. The top five countries
+        account for more than 60 percent of all country mentions, while the top ten represent over
+        70 percent. Expanding the view further, the top twenty countries already account for more than
+        85 percent of all mentions. Overall, these results show that global Reddit attention is strongly
+        concentrated on a small number of countries, while large parts of the world receive comparatively
+        little visibility.
       </p>
-
+    
+      <div class="sub-title">7.3 Reddit Activity Index (RAI)</div>
+      <p>
+        When country mentions are normalized using the Reddit Activity Index, the observed patterns
+        change substantially compared to raw mention counts. The RAI measures country mentions relative
+        to the estimated number of active internet users and therefore highlights relative attention
+        rather than absolute volume.
+      </p>
+    
+      <p>
+        Countries with the highest RAI values are predominantly small and highly concentrated countries,
+        such as Greenland, Monaco, Iceland, Malta, and Liechtenstein. In contrast, countries with large
+        populations or lower development levels tend to show much lower relative attention, even if they
+        appear frequently in absolute terms. This demonstrates that countries dominating raw mention
+        counts do not necessarily receive the highest relative attention once differences in online
+        population size are taken into account.
+      </p>
+    
       <div class="figure-block">
-        <img src="./RAI_vs_HDI_PS.jpg" alt="Correlation values for RAI and HDI">
-        <div class="figure-caption">Correlation values for log RAI versus HDI (Pearson and Spearman).</div>
+        <img src="./top10_reddit_activity_index.jpg" alt="Top countries by Reddit Activity Index">
+        <div class="figure-caption">
+          Countries with the highest Reddit Activity Index values.
+        </div>
       </div>
-
+    
       <div class="figure-block">
-        <img src="./RAI_vs_HDI_outlier.jpeg" alt="Scatterplot of Reddit Activity and Human Development with outlier">
-        <div class="figure-caption">Reddit Activity Index versus HDI with trend line and notable outlier.</div>
+        <img src="./bottom_10_reddit_activity_index.jpg" alt="Bottom countries by Reddit Activity Index">
+        <div class="figure-caption">
+          Countries with the lowest Reddit Activity Index values.
+        </div>
       </div>
-
-      <p class="note">
-        Quick interpretation: high values can reflect genuine attention, but also event driven spikes. Ukraine and Greenland are examples where
-        geopolitical or media dynamics likely shaped visibility during the study period.
+    
+      <div class="sub-title">7.4 Relationship Between Reddit Activity and Human Development</div>
+      <p>
+        An analysis of the relationship between the Reddit Activity Index and the Human Development
+        Index reveals a moderate positive correlation. Pearson’s correlation coefficient yields a value
+        of r = 0.544, while Spearman’s rank correlation results in a slightly higher value of ρ = 0.594.
+        Both measures indicate that countries with higher HDI values tend to show higher relative Reddit
+        activity.
+      </p>
+    
+      <p>
+        In addition, the median Reddit Activity Index increases systematically across HDI categories,
+        suggesting that countries with higher levels of socioeconomic development are more visible in
+        Reddit discourse relative to the size of their online population.
+      </p>
+    
+      <div class="figure-block">
+        <img src="./RAI_vs_HDI_PS.jpg" alt="Correlation between RAI and HDI">
+        <div class="figure-caption">
+          Correlation between the Reddit Activity Index and the Human Development Index.
+        </div>
+      </div>
+    
+      <div class="figure-block">
+        <img src="./RAI_vs_HDI_outlier.jpeg" alt="RAI versus HDI with outlier">
+        <div class="figure-caption">
+          Reddit Activity Index versus HDI with highlighted outlier.
+        </div>
+      </div>
+    
+      <p>
+        However, notable outliers are present. The United Arab Emirates, for example, combines a very
+        high HDI with one of the lowest Reddit Activity Index values in the dataset. This pattern suggests
+        that factors beyond development level, such as cultural preferences, language use, or the
+        popularity of alternative social media platforms, may strongly influence Reddit participation.
+      </p>
+    
+      <div class="sub-title">7.5 Spatial Patterns and Notable Cases</div>
+      <p>
+        The spatial visualization of Reddit country mentions highlights strong regional imbalances.
+        Western and English speaking countries dominate the map, even when multilingual country names
+        are included in the extraction process. This reflects the predominantly Western user base of
+        Reddit and reinforces existing linguistic and platform related biases.
+      </p>
+    
+      <p>
+        In some cases, high country visibility appears to be driven by specific events or thematic
+        attention rather than sustained participation. Ukraine, for instance, ranks among the top
+        countries by total mentions, which can be linked to ongoing global discussions related to the
+        war. Greenland, which ranks highest in the Reddit Activity Index, shows elevated relative
+        attention that may be associated with increased media coverage and political statements in early
+        2025.
+      </p>
+    
+      <p>
+        Overall, the results show that Reddit attention is highly concentrated, unevenly distributed,
+        and strongly shaped by structural, linguistic, and contextual factors.
       </p>
     </div>
 
     <!-- Conclusion -->
     <div class="card" id="conclusion">
-      <div class="section-title">Conclusion and Take Home Message</div>
-
+      <div class="section-title">Conclusion and Take-Home Message</div>
+    
       <p>
-        Reddit based country attention is highly uneven and dominated by a small set of mostly Western countries.
-        Normalizing by internet users changes the picture and highlights that raw counts can be misleading at global scale.
+        This project examined global patterns of geographic attention on Reddit in order to better
+        understand biases in large scale social media data. The results show that global Reddit attention
+        is highly uneven and dominated by a small number of primarily Western countries, with the United
+        States playing a particularly central role. Large parts of the world receive comparatively little
+        visibility, even when multilingual country names are included in the analysis.
       </p>
+    
       <p>
-        Relative attention tends to increase with HDI (Pearson r = 0.544, Spearman ρ = 0.594), but outliers show that development alone
-        does not explain participation. Event driven attention can also push small countries to unusually high visibility.
+        A key finding is the strong contrast between absolute country mention counts and relative
+        attention, as measured by the Reddit Activity Index. Countries that dominate raw mention counts
+        do not necessarily exhibit high relative attention once differences in population size and
+        internet usage are taken into account. This highlights the importance of normalization when
+        interpreting global social media patterns.
       </p>
-
+    
+      <p>
+        The analysis further shows that relative Reddit activity generally increases with a country’s
+        level of human development, as reflected by a moderate positive correlation between the Reddit
+        Activity Index and the Human Development Index. At the same time, notable outliers demonstrate
+        that development level alone cannot explain Reddit participation. Cultural factors, language use,
+        and the popularity of alternative platforms appear to play an important role in shaping online
+        visibility.
+      </p>
+    
+      <p>
+        In addition, the results indicate that small countries can receive disproportionately high
+        attention when global discussions are driven by specific events. Examples such as Ukraine or
+        Greenland illustrate that short term political or media dynamics can strongly influence spatial
+        attention patterns, emphasizing the need to consider contextual factors behind unusually high
+        values.
+      </p>
+    
       <p class="note big">
-        <strong>Take home message:</strong> Global social media maps do not show neutral worldwide attention. They reflect platform usage,
-        language dominance, unequal access, and short term events. Interpreting such patterns means treating bias as part of the signal,
-        not just a limitation.
+        <strong>Take-Home Message:</strong>
+        Overall, this project demonstrates that global Reddit activity patterns are not neutral
+        representations of worldwide attention. Instead, they are shaped by language, platform
+        structure, major global events, and broader socioeconomic conditions. As a result, spatial
+        patterns derived from social media data must be interpreted critically, with a clear awareness
+        of the biases embedded in how such data is generated and distributed.
       </p>
-
+    
       <p class="back">
         <a href="https://luislionlucafink.github.io/portfolio/">← Back to portfolio</a>
       </p>
@@ -469,8 +835,10 @@
 
   <nav class="toc" aria-label="Contents">
     <div class="toc-title">Contents</div>
+  
     <a href="#overview">Overview</a>
-    <a href="#motivation">Motivation</a>
+    <a href="#motivation">Introduction and Motivation</a>
+    <a href="#related-work">Related Work & Research Gaps</a>
     <a href="#research-questions">Research Questions</a>
     <a href="#data">Data</a>
     <a href="#methods">Methods</a>
