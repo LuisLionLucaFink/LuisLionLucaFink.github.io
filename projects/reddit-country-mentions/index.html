@@ -1,1 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mapping Global Biases in Social Media Data</title>
 
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      margin:0;
+      background:#f5f6f8;
+      color:#222;
+    }
+
+    header{
+      background:
+        linear-gradient(
+          rgba(255,255,255,0.85),
+          rgba(255,255,255,0.85)
+        ),
+        url("./Reddit_Header.png") center / cover no-repeat;
+      padding: 72px 20px 64px;
+      text-align:center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      border-bottom:1px solid #e6e6e6;
+    }
+
+    header h1{
+      margin:0;
+      font-size:34px;
+      letter-spacing:0.2px;
+    }
+
+    header p{
+      max-width:880px;
+      margin:12px auto 0;
+      font-size:16px;
+      color:#555;
+      line-height:1.5;
+    }
+
+    main{
+      max-width: 960px;
+      margin: 42px auto;
+      padding: 0 240px 0 20px;
+    }
+
+    .card{
+      background:#fff;
+      border-radius:14px;
+      padding:26px 28px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+      margin-bottom:26px;
+    }
+
+    .section-title{
+      margin:0 0 10px 0;
+      font-size:20px;
+      font-weight:800;
+    }
+
+    p{
+      margin:10px 0;
+      line-height:1.65;
+      color:#333;
+    }
+
+    a{
+      color:#3366cc;
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    a:hover{
+      text-decoration:underline;
+    }
+
+    .back{
+      display:inline-block;
+      margin-top:6px;
+      font-size:14px;
+    }
+
+    .note{
+      background:#f7f9fc;
+      border:1px solid #d0d7e2;
+      border-radius:14px;
+      padding:14px 16px;
+      color:#334155;
+      font-size:14.5px;
+      line-height:1.6;
+      margin-top:12px;
+    }
+
+    .note strong{
+      font-weight:800;
+    }
+
+    .note.big{
+      background:#eef5ff;
+      border:1px solid #b7d0ff;
+      padding:18px 18px;
+      font-size:15.5px;
+    }
+
+    .media{
+      margin-top:14px;
+      border:1px solid #e6e6e6;
+      border-radius:14px;
+      overflow:hidden;
+      background:#fff;
+    }
+
+    .media iframe{
+      width:100%;
+      height:560px;
+      border:0;
+      display:block;
+      background:#fff;
+    }
+
+    .figure-block{
+      margin: 16px 0 26px;
+    }
+
+    .figure-block img{
+      display:block;
+      width:100%;
+      height:auto;
+      border:1px solid #e6e6e6;
+      border-radius:14px;
+      background:#fff;
+    }
+
+    .figure-caption{
+      font-size: 13px;
+      color:#666;
+      text-align:center;
+      margin-top:8px;
+    }
+
+    footer{
+      text-align:center;
+      padding:26px 18px 40px;
+      font-size:13px;
+      color:#666;
+    }
+
+    html{
+      scroll-behavior: smooth;
+    }
+
+    /* Contents card on the right */
+    .toc{
+      position: fixed;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 250px;
+
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(6px);
+
+      border: 1px solid #e6e6e6;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+
+      padding: 16px 16px 14px;
+      z-index: 9999;
+    }
+
+    .toc-title{
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 12px;
+    }
+
+    .toc a{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #2f5fbf;
+      text-decoration:none;
+    }
+
+    .toc a::before{
+      content:"•";
+      font-size:18px;
+      color:#b7c6ff;
+      line-height:1;
+    }
+
+    .toc a:hover{
+      background:#f4f6ff;
+      text-decoration:none;
+    }
+
+    .toc a:active{
+      transform: translateX(2px);
+    }
+
+    @media (max-width: 1200px){
+      .toc{ display:none; }
+      main{ padding: 0 20px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Mapping Global Biases in Social Media Data</h1>
+    <p><strong>A Large Scale Analysis of Country Mentions on Reddit (2025)</strong></p>
+  </header>
+
+  <main>
+
+    <!-- Overview -->
+    <div class="card" id="overview">
+      <div class="section-title">Overview</div>
+      <p>
+        This project maps where countries show up in Reddit discussions and what that distribution says
+        about bias in global data. Using more than 400 million Reddit submissions from January to October 2025,
+        it extracts country mentions from text and compares absolute visibility with a normalized measure of
+        relative attention.
+      </p>
+
+      <p class="back">
+        <a href="https://luislionlucafink.github.io/portfolio/">← Back to portfolio</a>
+      </p>
+    </div>
+
+    <!-- Motivation -->
+    <div class="card" id="motivation">
+      <div class="section-title">Motivation</div>
+      <p>
+        Working with global datasets quickly shows they are rarely neutral. Some regions appear constantly,
+        while others barely show up. This usually reflects how data is produced, not what is happening in the world.
+      </p>
+      <p>
+        Reddit is a useful case study here. It looks global, but participation is uneven across regions and languages.
+        Instead of treating Reddit activity as global attention, this project uses it to make these imbalances visible.
+      </p>
+      <p>
+        To do that, country mentions are analyzed not only as raw counts, but also in relation to population size,
+        internet usage, and development level. This helps separate absolute visibility from relative attention.
+      </p>
+    </div>
+
+    <!-- Research Questions -->
+    <div class="card" id="research-questions">
+      <div class="section-title">Research Questions</div>
+
+      <div class="note big">
+        <strong>RQ1.</strong> How are country mentions in Reddit posts spatially distributed across the globe?<br><br>
+        <strong>RQ2.</strong> Which spatial biases become visible when global Reddit country mentions are mapped?<br><br>
+        <strong>RQ3.</strong> Which countries receive disproportionately high or low attention relative to population size and internet usage?<br><br>
+        <strong>RQ4.</strong> How does relative Reddit activity relate to national development levels (HDI)?
+      </div>
+    </div>
+
+    <!-- Data -->
+    <div class="card" id="data">
+      <div class="section-title">Data</div>
+      <p>
+        The primary dataset consists of monthly Reddit submission dumps from Academic Torrents, covering January to October 2025.
+        The full archive includes more than 400 million submissions (about 166.5 GB compressed). The analysis focuses on post titles,
+        post bodies, and subreddit names. Comments were excluded to keep processing feasible at this scale.
+      </p>
+
+      <p>
+        To contextualize country visibility, the Reddit results were combined with country level indicators:
+        population estimates, internet usage shares, and the Human Development Index.
+      </p>
+
+      <p class="note">
+        Data source: <a href="https://academictorrents.com/browse.php?search=reddit" target="_blank" rel="noopener">Academic Torrents Reddit dumps</a><br>
+        Population: <a href="https://worldpopulationreview.com/countries" target="_blank" rel="noopener">World Population Review</a><br>
+        Internet usage: <a href="https://ourworldindata.org/grapher/share-of-individuals-using-the-internet?tab=table" target="_blank" rel="noopener">Our World in Data</a><br>
+        HDI: <a href="https://hdr.undp.org/data-center/documentation-and-downloads" target="_blank" rel="noopener">UN Human Development Reports</a>
+      </p>
+    </div>
+
+    <!-- Methods -->
+    <div class="card" id="methods">
+      <div class="section-title">Methods</div>
+      <p>
+        Country mentions were extracted with a multilingual country dictionary (30 major world languages) and a scalable string matching approach.
+        Special handling was added for short abbreviations like US and UK using context rules so they are only accepted in clear geographic phrasing.
+      </p>
+
+      <p>
+        To compare countries more fairly, a Reddit Activity Index (RAI) was computed as country mentions relative to the estimated number of
+        internet users (population multiplied by internet usage rate), using a log transform for comparability.
+      </p>
+
+      <div class="figure-block">
+        <img src="./RAI_Formula.jpg" alt="Reddit Activity Index formula">
+        <div class="figure-caption">Reddit Activity Index (RAI) formula.</div>
+      </div>
+    </div>
+
+    <!-- Interactive Map -->
+    <div class="card" id="interactive-map">
+      <div class="section-title">Interactive Map</div>
+      <p>
+        The map combines three dimensions: country fill color shows HDI, bubble size shows total mention volume,
+        and bubble color shows the Reddit Activity Index (relative attention). This makes it easier to see where
+        absolute visibility and relative attention diverge.
+      </p>
+
+      <p class="note">
+        <a href="https://luislionlucafink.github.io/Global_Distribution_of_Reddit_Country_Mentions_2025.html" target="_blank" rel="noopener">
+          The interactive version of the map is available online!
+        </a>
+      </p>
+
+      <!-- Embedded local copy (place the Folium html file in the same folder) -->
+      <div class="media">
+        <iframe src="./Global_Distribution_of_Reddit_Country_Mentions_2025.html" loading="lazy" title="Global Distribution of Reddit Country Mentions (2025)"></iframe>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="card" id="results">
+      <div class="section-title">Results</div>
+
+      <p>
+        Across the dataset, 186 countries were mentioned. Out of more than 408 million submissions, about 9.3 million posts
+        (around 2.3 percent) contained at least one country reference, spanning roughly 1.1 million unique subreddits.
+        Visibility is highly skewed: the United States leads with over 3.3 million mentions, followed by Canada
+        (about 800,000) and the United Kingdom (about 720,000). Many countries appear fewer than 1,000 times.
+        This concentration is also visible in cumulative shares: the top five countries account for over 60 percent of mentions,
+        the top ten for over 70 percent, and the top twenty for over 85 percent.
+      </p>
+
+      <div class="figure-block">
+        <img src="./top10_total_country_mentions.jpg" alt="Top 10 countries by total Reddit mentions">
+        <div class="figure-caption">Top 10 countries by total Reddit mentions.</div>
+      </div>
+
+      <div class="figure-block">
+        <img src="./bottom_10_total_country_mentions.jpg" alt="Bottom 10 countries by total Reddit mentions">
+        <div class="figure-caption">Bottom 10 countries by total Reddit mentions (non zero).</div>
+      </div>
+
+      <p>
+        When switching from raw counts to the Reddit Activity Index, the ranking changes sharply. Small and highly concentrated
+        countries (for example Greenland, Monaco, Iceland, Malta, Liechtenstein) rise to the top, while many large or lower HDI
+        countries show lower relative attention.
+      </p>
+
+      <div class="figure-block">
+        <img src="./top10_reddit_activity_index.jpg" alt="Top 10 countries by Reddit Activity Index">
+        <div class="figure-caption">Top 10 countries by Reddit Activity Index (log scale).</div>
+      </div>
+
+      <div class="figure-block">
+        <img src="./bottom_10_reddit_activity_index.jpg" alt="Bottom 10 countries by Reddit Activity Index">
+        <div class="figure-caption">Bottom 10 countries by Reddit Activity Index (log scale).</div>
+      </div>
+
+      <p>
+        Relative Reddit activity is moderately associated with development level. The correlation between log RAI and HDI is
+        Pearson r = 0.544 and Spearman ρ = 0.594, suggesting that higher HDI countries tend to receive higher relative attention.
+        A notable outlier is the United Arab Emirates: very high HDI, but one of the lowest RAI values, pointing to additional
+        factors such as language, culture, or platform preferences.
+      </p>
+
+      <div class="figure-block">
+        <img src="./RAI_vs_HDI_PS.jpg" alt="Correlation values for RAI and HDI">
+        <div class="figure-caption">Correlation values for log RAI versus HDI (Pearson and Spearman).</div>
+      </div>
+
+      <div class="figure-block">
+        <img src="./RAI_vs_HDI_outlier.jpeg" alt="Scatterplot of Reddit Activity and Human Development with outlier">
+        <div class="figure-caption">Reddit Activity Index versus HDI with trend line and notable outlier.</div>
+      </div>
+
+      <p class="note">
+        Quick interpretation: high values can reflect genuine attention, but also event driven spikes. Ukraine and Greenland are examples where
+        geopolitical or media dynamics likely shaped visibility during the study period.
+      </p>
+    </div>
+
+    <!-- Conclusion -->
+    <div class="card" id="conclusion">
+      <div class="section-title">Conclusion and Take Home Message</div>
+
+      <p>
+        Reddit based country attention is highly uneven and dominated by a small set of mostly Western countries.
+        Normalizing by internet users changes the picture and highlights that raw counts can be misleading at global scale.
+      </p>
+      <p>
+        Relative attention tends to increase with HDI (Pearson r = 0.544, Spearman ρ = 0.594), but outliers show that development alone
+        does not explain participation. Event driven attention can also push small countries to unusually high visibility.
+      </p>
+
+      <p class="note big">
+        <strong>Take home message:</strong> Global social media maps do not show neutral worldwide attention. They reflect platform usage,
+        language dominance, unequal access, and short term events. Interpreting such patterns means treating bias as part of the signal,
+        not just a limitation.
+      </p>
+
+      <p class="back">
+        <a href="https://luislionlucafink.github.io/portfolio/">← Back to portfolio</a>
+      </p>
+    </div>
+
+    <!-- Sources -->
+    <div class="card" id="sources">
+      <div class="section-title">Sources</div>
+
+      <p>
+        Cheng, Z., Caverlee, J., & Lee, K. (2010). <em>You are where you tweet: A content based approach to geo locating Twitter users</em>.
+        Proceedings of the 19th ACM International Conference on Information and Knowledge Management (CIKM 2010).
+        (https://dl.acm.org/doi/10.1145/1871437.1871535)
+      </p>
+
+      <p>
+        Harrigian, K. (2018). <em>Geocoding without geotags: A text based approach for reddit</em>. arXiv.
+        (https://doi.org/10.48550/arXiv.1810.03067)
+      </p>
+
+      <p>
+        Karami, A., Kadari, R. R., Panati, L., Nooli, S. P., Bheemreddy, H., & Bozorgi, B. (2021). Analysis of geotagging behavior:
+        Do geotagged users represent the Twitter population? <em>ISPRS International Journal of Geo Information, 10</em>(6), 373.
+        (https://doi.org/10.3390/ijgi10060373)
+      </p>
+
+      <p>
+        Stillman, M., & Kruspe, A. M. (2024). <em>Geolocation extraction from Reddit text data</em>. GeoExT at ECIR, 11 to 20.
+        (https://ceur-ws.org/Vol-3567/paper2.pdf)
+      </p>
+
+      <p>
+        Zhu, X. X., Wang, Y., Kochupillai, M., Werner, M., Häberle, M., Hoffmann, E. J., et al. (2023). Geoinformation harvesting from social media data:
+        A community remote sensing approach. <em>IEEE Geoscience and Remote Sensing Magazine, 10</em>(4), 150 to 180.
+        (https://doi.org/10.1109/MGRS.2022.3173461)
+      </p>
+
+      <p>
+        Academic Torrents. (n.d.). <em>Search for “Reddit”</em>. (https://academictorrents.com/browse.php?search=reddit)
+      </p>
+
+      <p>
+        Our World in Data. (n.d.). <em>Share of the population using the Internet</em>. (https://ourworldindata.org/grapher/share-of-individuals-using-the-internet?tab=table)
+      </p>
+
+      <p>
+        United Nations Development Programme. (n.d.). <em>Human Development Reports: Documentation and downloads</em>.
+        (https://hdr.undp.org/data-center/documentation-and-downloads)
+      </p>
+
+      <p>
+        World Population Review. (n.d.). <em>Countries by population</em>. (https://worldpopulationreview.com/countries)
+      </p>
+    </div>
+
+  </main>
+
+  <nav class="toc" aria-label="Contents">
+    <div class="toc-title">Contents</div>
+    <a href="#overview">Overview</a>
+    <a href="#motivation">Motivation</a>
+    <a href="#research-questions">Research Questions</a>
+    <a href="#data">Data</a>
+    <a href="#methods">Methods</a>
+    <a href="#interactive-map">Interactive Map</a>
+    <a href="#results">Results</a>
+    <a href="#conclusion">Conclusion</a>
+    <a href="#sources">Sources</a>
+  </nav>
+
+  <footer>© 2026 Luis Fink</footer>
+</body>
+</html>
