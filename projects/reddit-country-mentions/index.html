@@ -350,7 +350,7 @@
         </a>
         proposed a broader framework for geoinformation harvesting from social media, emphasizing that
         platform bias, spatial bias, content bias, and methodological bias are inherent properties of
-        social media data rather than issues that can be fully removed.
+        social media data rather than issues that can be fully removed. 
       </p>
     
       <p>
@@ -418,7 +418,7 @@
     <div class="card" id="data">
       <div class="section-title">Data</div>
     
-      <div class="sub-title">5.1 Reddit Data</div>
+      <div class="sub-title">Reddit Data</div>
       <p>
         The primary dataset used in this project consists of Reddit submission data obtained from
         <a href="https://academictorrents.com/browse.php?search=reddit" target="_blank" rel="noopener">
@@ -442,7 +442,7 @@
         of submissions, which typically contains the most relevant geographic references.
       </p>
     
-      <div class="sub-title">5.2 Additional Data Sources</div>
+      <div class="sub-title">Additional Data Sources</div>
       <p>
         To support the analysis of spatial bias and to enable meaningful comparisons between countries,
         the Reddit based country mention data was combined with several external country level datasets.
@@ -471,7 +471,7 @@
         </a>.
       </p>
     
-      <div class="sub-title">5.3 Scope of the Dataset</div>
+      <div class="sub-title">Scope of the Dataset</div>
       <p>
         The dataset represents patterns of geographic attention in Reddit discourse rather than the
         physical locations of users or events. Country mentions reflect which countries are discussed on
@@ -489,7 +489,7 @@
     <div class="card" id="methods">
       <div class="section-title">Methods</div>
     
-      <div class="sub-title">6.1 Data Preparation and Workflow</div>
+      <div class="sub-title">Data Preparation and Workflow</div>
       <p>
         As a first step, the monthly Reddit submission files were downloaded via a BitTorrent client and
         processed in a JupyterLab environment. Each monthly file was handled separately in order to manage
@@ -501,7 +501,7 @@
         identifying country references in Reddit discourse.
       </p>
     
-      <div class="sub-title">6.2 Multilingual Country Dictionary</div>
+      <div class="sub-title">Multilingual Country Dictionary</div>
       <p>
         To reduce the strong bias toward English language content commonly observed in social media
         analyses, a multilingual country dictionary was created. The dictionary contains official country
@@ -514,7 +514,7 @@
         Kingdom. This step improves recall by capturing informal references frequently used in Reddit posts.
       </p>
     
-      <div class="sub-title">6.3 Country Matching and Scalability</div>
+      <div class="sub-title">Country Matching and Scalability</div>
       <p>
         The central methodological challenge of this project was the extraction of country mentions from
         several hundred million Reddit posts. Multiple text matching approaches were tested during
@@ -528,7 +528,7 @@
         large Reddit datasets feasible.
       </p>
     
-      <div class="sub-title">6.4 Context-Based Filtering</div>
+      <div class="sub-title">Context-Based Filtering</div>
       <p>
         Short country synonyms such as “US” or “UK” are highly ambiguous and can easily lead to false
         positive matches. To reduce this problem, additional context-based rules were applied alongside the
@@ -540,7 +540,7 @@
         short abbreviations are interpreted as country references rather than unrelated words or expressions.
       </p>
     
-      <div class="sub-title">6.5 Reddit Activity Index</div>
+      <div class="sub-title">Reddit Activity Index</div>
       <p>
         To move beyond raw country mention counts, a custom Reddit Activity Index (RAI) was developed.
         The RAI measures how frequently a country is mentioned on Reddit relative to the number of active
@@ -562,7 +562,7 @@
         <div class="figure-caption">Reddit Activity Index (RAI) formula.</div>
       </div>
     
-      <div class="sub-title">6.6 Map Creation and Visualization</div>
+      <div class="sub-title">Map Creation and Visualization</div>
       <p>
         In the final step, all matched Reddit posts were aggregated at the country level. The aggregated
         country data was then linked with population size, internet usage rates, Human Development Index
@@ -636,7 +636,7 @@
     <div class="card" id="results">
       <div class="section-title">Results</div>
     
-      <div class="sub-title">7.1 Overall Distribution and Concentration of Country Mentions</div>
+      <div class="sub-title">Overall Distribution and Concentration of Country Mentions</div>
       <p>
         Across the analyzed Reddit submissions, a total of 186 different countries were mentioned.
         From more than 408 million Reddit posts, approximately 9.3 million posts, or about 2.3 percent
@@ -675,7 +675,7 @@
         little visibility.
       </p>
     
-      <div class="sub-title">7.3 Reddit Activity Index (RAI)</div>
+      <div class="sub-title">Reddit Activity Index (RAI)</div>
       <p>
         When country mentions are normalized using the Reddit Activity Index, the observed patterns
         change substantially compared to raw mention counts. The RAI measures country mentions relative
@@ -706,7 +706,7 @@
         </div>
       </div>
     
-      <div class="sub-title">7.4 Relationship Between Reddit Activity and Human Development</div>
+      <div class="sub-title">Relationship Between Reddit Activity and Human Development</div>
       <p>
         An analysis of the relationship between the Reddit Activity Index and the Human Development
         Index reveals a moderate positive correlation. Pearson’s correlation coefficient yields a value
@@ -742,7 +742,7 @@
         popularity of alternative social media platforms, may strongly influence Reddit participation.
       </p>
     
-      <div class="sub-title">7.5 Spatial Patterns and Notable Cases</div>
+      <div class="sub-title">Spatial Patterns and Notable Cases</div>
       <p>
         The spatial visualization of Reddit country mentions highlights strong regional imbalances.
         Western and English speaking countries dominate the map, even when multilingual country names
