@@ -307,6 +307,12 @@
       font-weight:800;
       margin-bottom:8px;
     }
+    .divider{
+      border: none;
+      height: 1px;
+      background: #e6e6e6;
+      margin: 18px 0;
+    }
   </style>
 </head>
 
@@ -569,13 +575,15 @@
         US–Mexico border routes remain comparatively stable over time, showing fluctuations but
         no dramatic peaks comparable to those observed in the Mediterranean.
       </p>
+
+      <hr class="divider">
     
       <!-- Yearly plot -->
       <div class="figure-block">
         <img src="./DaM_by_Year.jpg" alt="Total deaths and missing by year across migration routes">
       </div>
 
-      <div class="sub-title">Maps: Monthly and Yearly Spatial Shifts</div>
+      <div class="method-title">Maps: Monthly and Yearly Spatial Shifts</div>
       <p>
         To incorporate spatial aspects into the temporal analysis, I calculated weighted average incident
         locations for both months and years. The incident coordinates are weighted by the number of deaths and
