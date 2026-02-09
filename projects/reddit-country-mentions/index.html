@@ -429,8 +429,8 @@
       </p>
     
       <p>
-        In total, the dataset includes more than 400 million Reddit posts, with a compressed file size of
-        approximately 166.5&nbsp;GB. The data covers a ten month period from January to October 2025 and
+        In total, the dataset includes more than <strong>400 million Reddit posts</strong>, with a compressed file size of
+        approximately <strong>166.5&nbsp;GB</strong>. The data covers a ten month period from <strong>January to October 2025</strong> and
         is provided as monthly files in compressed JSON Lines format. Each monthly file contains all
         Reddit submissions published within the respective month.
       </p>
@@ -524,7 +524,7 @@
         inefficient for datasets of this size, with estimated runtimes of several days.
       </p>
       <p>
-        To address this limitation, the Aho–Corasick string matching algorithm was used. This algorithm
+        To address this limitation, the <strong>Aho–Corasick string matching algorithm</strong> was used. This algorithm
         allows thousands of country names to be matched simultaneously in a single pass through the text. As
         a result, country extraction could be performed efficiently and at scale, making the analysis of very
         large Reddit datasets feasible.
@@ -584,28 +584,28 @@
     
       <p>
         The interactive map represents the global spatial distribution of country mentions in Reddit posts
-        and combines multiple dimensions of Reddit activity in a single visualization. Country polygons are
-        colored according to their Human Development Index (HDI), bubble size represents the total number
-        of Reddit posts mentioning a country, and bubble color encodes the Reddit Activity Index (RAI),
+        and combines multiple dimensions of Reddit activity in a single visualization. <strong>Country polygons</strong> are
+        colored according to their Human Development Index (HDI), <strong>bubble size</strong> represents the total number
+        of Reddit posts mentioning a country, and <strong>bubble color</strong> encodes the Reddit Activity Index (RAI),
         indicating relative attention adjusted for the size of the online population.
       </p>
     
       <p>
         Several spatial patterns are immediately visible. Reddit attention is strongly concentrated in
-        North America and Western Europe, with particularly large bubbles for the United States, Canada,
+        <strong>North America and Western Europe</strong>, with particularly large bubbles for the United States, Canada,
         and the United Kingdom. In contrast, large parts of Africa, Central Asia, and Southeast Asia show
         comparatively small bubbles, indicating lower absolute visibility in Reddit discussions.
       </p>
     
       <p>
-        The map also highlights the difference between absolute and relative attention. While large
+        The map also highlights the difference between <strong>absolute and relative attention</strong>. While large
         countries dominate total mention counts, several smaller countries become more prominent when
         attention is normalized using the Reddit Activity Index. This is especially visible in Northern
         and Western Europe, where relatively small populations coincide with high relative Reddit activity.
       </p>
     
       <p>
-        In addition, the visualization reveals a clear West–East and North–South gradient. Countries with
+        In addition, the visualization reveals a clear <strong>West–East and North–South gradient</strong>. Countries with
         higher HDI levels tend to display darker bubble colors, indicating higher relative Reddit activity,
         whereas countries with lower development levels generally show lower relative attention. At the
         same time, notable exceptions are visible, underlining that development level alone does not fully
@@ -640,18 +640,18 @@
     
       <div class="sub-title">Overall Distribution and Concentration of Country Mentions</div>
       <p>
-        Across the analyzed Reddit submissions, a total of 186 different countries were mentioned.
-        From more than 408 million Reddit posts, approximately 9.3 million posts, or about 2.3 percent
+        Across the analyzed Reddit submissions, a total of <strong>186 different countries</strong> were mentioned.
+        From more than <strong>408 million Reddit posts</strong>, approximately <strong>9.3 million posts</strong>, or about 2.3 percent
         of all submissions, contained at least one country reference. These matched posts originate from
-        roughly 1.1 million unique subreddits, indicating that geographic references appear across a wide
+        roughly <strong>1.1 million unique subreddits</strong>, indicating that geographic references appear across a wide
         range of topics and communities.
       </p>
     
       <p>
         The distribution of country mentions is highly uneven. The United States clearly dominates the
         dataset with more than 3.3 million mentions, followed by Canada with approximately 800,000
-        mentions and the United Kingdom with around 720,000. In contrast, the median number of mentions
-        per country is only about 7,000, and many countries receive fewer than 1,000 mentions in total.
+        mentions and the United Kingdom with around 720,000. In contrast, the <strong>median number of mentions
+        per country is only about 7,000</strong>, and many countries receive fewer than 1,000 mentions in total.
       </p>
     
       <div class="figure-block">
@@ -663,8 +663,8 @@
       </div>
     
       <p>
-        This imbalance becomes even clearer when considering cumulative shares. The top five countries
-        account for more than 60 percent of all country mentions, while the top ten represent over
+        This imbalance becomes even clearer when considering cumulative shares. <strong>The top five countries
+        account for more than 60 percent of all country mentions</strong>, while the top ten represent over
         70 percent. Expanding the view further, the top twenty countries already account for more than
         85 percent of all mentions. Overall, these results show that global Reddit attention is strongly
         concentrated on a small number of countries, while large parts of the world receive comparatively
@@ -699,8 +699,8 @@
       <div class="sub-title">Relationship Between Reddit Activity and Human Development</div>
       <p>
         An analysis of the relationship between the Reddit Activity Index and the Human Development
-        Index reveals a moderate positive correlation. Pearson’s correlation coefficient yields a value
-        of r = 0.544, while Spearman’s rank correlation results in a slightly higher value of ρ = 0.594.
+        Index reveals a moderate positive correlation. <strong>Pearson’s correlation coefficient yields a value
+        of r = 0.544</strong>, while <strong>Spearman’s rank correlation results in a slightly higher value of ρ = 0.594</strong>.
         Both measures indicate that countries with higher HDI values tend to show higher relative Reddit
         activity.
       </p>
